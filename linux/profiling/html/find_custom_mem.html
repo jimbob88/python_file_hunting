@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8" .="">
+<title>find_custom_mem</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/snakeviz.css" rel="stylesheet">
+<!-- DataTables CSS -->
+<link href="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/vendor/jquery.dataTables.min.css" rel="stylesheet">
+</head><link type="text/css" id="dark-mode" rel="stylesheet" href=""><style type="text/css" id="dark-mode-custom-style"></style>
+<body>
+<h1 id="snakeviz-text">
+<a href="https://jiffyclub.github.io/snakeviz/">SnakeViz</a>
+</h1>
+<!-- reset button -->
+<span id="resetbuttons">
+<div class="button-div">
+<button id="resetbutton-root" disabled="True">Reset Root</button>
+</div>
+<div class="button-div">
+<button id="resetbutton-zoom" disabled="disabled">Reset Zoom</button>
+</div>
+</span>
+<!-- style select -->
+<label id="sv-style-label">Style:
+<select name="sv-style" id="sv-style-select">
+<option value="icicle" selected="selected">Icicle</option>
+<option value="sunburst">Sunburst</option>
+</select>
+</label>
+<!-- depth select -->
+<label id="sv-depth-label">Depth:
+<select name="sv-depth" id="sv-depth-select">
+
+<option value="3">3</option>
+
+<option value="5">5</option>
+
+<option value="10" selected="selected">10</option>
+
+<option value="15">15</option>
+
+<option value="20">20</option>
+
+</select>
+</label>
+<!-- cutoff select -->
+<label id="sv-cutoff-label">Cutoff:
+<select name="sv-cutoff" id="sv-cutoff-select">
+<option value="0.001" selected="selected">1 ⁄ 1000</option>
+<option value="0.01">1 ⁄ 100</option>
+<option value="0">None</option>
+</select>
+</label>
+<!-- information div -->
+<div id="sv-info-div" class="icicle" style="height: 581.4px; width: 200px; display: none;"><div class="sv-info-label">Name:</div>
+<div class="sv-info-item">find_custom_mem_search</div>
+<div class="sv-info-label">Cumulative Time:</div>
+<div class="sv-info-item">0.964 s (96.18 %)</div>
+<div class="sv-info-label">File:</div>
+<div class="sv-info-item">test_processes.py</div>
+<div class="sv-info-label">Line:</div>
+<div class="sv-info-item">39</div>
+<div class="sv-info-label">Directory:</div>
+<div class="sv-info-item">/media/james/Development/Programming/Python/file_walker/speed_test/</div></div>
+<!-- call stack -->
+<div id="sv-call-stack">
+<div id="working-spinner" class="spinner" style="display: none;">
+<div class="bounce1"></div>
+<div class="bounce2"></div>
+<div class="bounce3"></div>
+</div>
+<div style="display: inline-block;">
+<button id="sv-call-stack-btn">Call Stack</button>
+</div>
+<div id="sv-call-stack-list"><div><span>0.&nbsp;</span><span>~:0(&lt;built-in method builtins.exec&gt;)</span></div></div>
+</div>
+<!-- Error message -->
+<div id="sv-error-div" class="sv-error-msg">
+<p>
+An error occurred processing your profile.
+You can try a lower depth, a larger cutoff,
+or try profiling a smaller portion of your code.
+If you continue to have problems you can
+<a href="https://github.com/jiffyclub/snakeviz/issues">
+contact us on GitHub</a>.
+</p>
+<div id="sv-error-close-div" class="sv-error-close">Close</div>
+</div>
+<!-- vis -->
+<div style="text-align: center;">
+<div id="chart" style="margin-left: auto; margin-right: auto;"><svg width="1440" height="775.2"><g id="container" transform="translate(90,60)"><rect id="path-0" x="0" y="0" width="1350" height="71.52000000000001" fill-rule="evenodd" fill="#3182bd" stroke="#FFF"></rect><rect id="path-1" x="0" y="71.52000000000001" width="1349.9245855948511" height="71.52000000000001" fill-rule="evenodd" fill="#6baed6" stroke="#FFF"></rect><rect id="path-2" x="0" y="143.04000000000002" width="1333.4074841814295" height="71.52000000000001" fill-rule="evenodd" fill="#9ecae1" stroke="#FFF"></rect><rect id="path-3" x="0" y="214.56000000000006" width="1298.358639388465" height="71.52000000000001" fill-rule="evenodd" fill="#c6dbef" stroke="#FFF" style="fill: rgb(198, 219, 239);"></rect><rect id="path-4" x="0" y="286.08000000000004" width="1141.5249570806245" height="71.52000000000001" fill-rule="evenodd" fill="#e6550d" stroke="#FFF" style="fill: rgb(230, 85, 13);"></rect><rect id="path-5" x="1141.5249570806245" y="286.08000000000004" width="139.93008206803054" height="71.52000000000001" fill-rule="evenodd" fill="#c6dbef" stroke="#FFF" style="fill: rgb(198, 219, 239);"></rect><rect id="path-6" x="1281.455039148655" y="286.08000000000004" width="16.903600239809826" height="71.52000000000001" fill-rule="evenodd" fill="#fd8d3c" stroke="#FFF"></rect><rect id="path-7" x="1281.455039148655" y="357.6" width="11.283880370408424" height="71.52000000000001" fill-rule="evenodd" fill="#fdae6b" stroke="#FFF"></rect><rect id="path-8" x="1292.7389195190635" y="357.6" width="5.619719869401403" height="71.52000000000001" fill-rule="evenodd" fill="#fd8d3c" stroke="#FFF"></rect><rect id="path-9" x="1298.358639388465" y="214.56000000000006" width="35.04884479296451" height="71.52000000000001" fill-rule="evenodd" fill="#9ecae1" stroke="#FFF"></rect><rect id="path-10" x="1333.4074841814295" y="143.04000000000002" width="16.51710141342153" height="71.52000000000001" fill-rule="evenodd" fill="#6baed6" stroke="#FFF"></rect><text x="675" y="35.760000000000005" width="1350" height="71.52000000000001" font-family="sans-serif" font-size="15px" fill="black" text-anchor="middle" pointer-events="none"><tspan text-anchor="middle" x="675">~:0(&lt;built-in method builtins.exec&gt;)</tspan><tspan text-anchor="middle" x="675" dy="1.2em">1.00 s</tspan></text><text x="674.9622927974256" y="107.28000000000003" width="1349.9245855948511" height="71.52000000000001" font-family="sans-serif" font-size="15px" fill="black" text-anchor="middle" pointer-events="none"><tspan text-anchor="middle" x="674.9622927974256">&lt;string&gt;:1(&lt;module&gt;)</tspan><tspan text-anchor="middle" x="674.9622927974256" dy="1.2em">1.00 s</tspan></text><text x="666.7037420907147" y="178.8" width="1333.4074841814295" height="71.52000000000001" font-family="sans-serif" font-size="15px" fill="black" text-anchor="middle" pointer-events="none"><tspan text-anchor="middle" x="666.7037420907147">test_processes.py:6(to_list)</tspan><tspan text-anchor="middle" x="666.7037420907147" dy="1.2em">0.990 s</tspan></text><text x="649.1793196942325" y="250.32000000000005" width="1298.358639388465" height="71.52000000000001" font-family="sans-serif" font-size="15px" fill="black" text-anchor="middle" pointer-events="none"><tspan text-anchor="middle" x="649.1793196942325">test_processes.py:39(find_custom_mem_search)</tspan><tspan text-anchor="middle" x="649.1793196942325" dy="1.2em">0.964 s</tspan></text><text x="570.7624785403123" y="321.84" width="1141.5249570806245" height="71.52000000000001" font-family="sans-serif" font-size="15px" fill="black" text-anchor="middle" pointer-events="none"><tspan text-anchor="middle" x="570.7624785403123">~:0(&lt;built-in method posix.system&gt;)</tspan><tspan text-anchor="middle" x="570.7624785403123" dy="1.2em">0.848 s</tspan></text></g></svg></div>
+</div>
+<br>
+<!-- stats table -->
+<div id="table_div">
+<div id="pstats-table_wrapper" class="dataTables_wrapper no-footer"><div id="pstats-table_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="pstats-table"></label></div><table class="display dataTable no-footer" id="pstats-table" role="grid" aria-describedby="pstats-table_info" style="width: 1854px;" cellspacing="0" cellpadding="0" border="0">
+<thead><tr role="row"><th class="sorting" tabindex="0" aria-controls="pstats-table" rowspan="1" colspan="1" style="width: 138px;" aria-label="ncalls: activate to sort column ascending">ncalls</th><th class="sorting_desc" tabindex="0" aria-controls="pstats-table" rowspan="1" colspan="1" style="width: 164px;" aria-sort="descending" aria-label="tottime: activate to sort column ascending">tottime</th><th class="sorting" tabindex="0" aria-controls="pstats-table" rowspan="1" colspan="1" style="width: 162px;" aria-label="percall: activate to sort column ascending">percall</th><th class="sorting" tabindex="0" aria-controls="pstats-table" rowspan="1" colspan="1" style="width: 189px;" aria-label="cumtime: activate to sort column ascending">cumtime</th><th class="sorting" tabindex="0" aria-controls="pstats-table" rowspan="1" colspan="1" style="width: 162px;" aria-label="percall: activate to sort column ascending">percall</th><th class="sorting" tabindex="0" aria-controls="pstats-table" rowspan="1" colspan="1" style="width: 823px;" aria-label="filename:lineno(function): activate to sort column ascending">filename:lineno(function)</th></tr></thead><tbody><tr role="row" class="odd"><td>1</td><td class="sorting_1">0.8477</td><td>0.8477</td><td>0.8477</td><td>0.8477</td><td>~:0(&lt;built-in method posix.system&gt;)</td></tr><tr role="row" class="even"><td>242726</td><td class="sorting_1">0.1039</td><td>4.281e-07</td><td>0.9642</td><td>3.972e-06</td><td>test_processes.py:39(find_custom_mem_search)</td></tr><tr role="row" class="odd"><td>1</td><td class="sorting_1">0.02603</td><td>0.02603</td><td>0.9902</td><td>0.9902</td><td>test_processes.py:6(to_list)</td></tr><tr role="row" class="even"><td>1</td><td class="sorting_1">0.01226</td><td>0.01226</td><td>1.003</td><td>1.003</td><td>&lt;string&gt;:1(&lt;module&gt;)</td></tr><tr role="row" class="odd"><td>4381</td><td class="sorting_1">0.008379</td><td>1.913e-06</td><td>0.008379</td><td>1.913e-06</td><td>~:0(&lt;built-in method _codecs.utf_8_decode&gt;)</td></tr><tr role="row" class="even"><td>4381</td><td class="sorting_1">0.004173</td><td>9.525e-07</td><td>0.01255</td><td>2.865e-06</td><td>codecs.py:319(decode)</td></tr><tr role="row" class="odd"><td>1</td><td class="sorting_1">7.5e-05</td><td>7.5e-05</td><td>9.4e-05</td><td>9.4e-05</td><td>~:0(&lt;built-in method io.open&gt;)</td></tr><tr role="row" class="even"><td>1</td><td class="sorting_1">5.6e-05</td><td>5.6e-05</td><td>1.003</td><td>1.003</td><td>~:0(&lt;built-in method builtins.exec&gt;)</td></tr><tr role="row" class="odd"><td>1</td><td class="sorting_1">7e-06</td><td>7e-06</td><td>7e-06</td><td>7e-06</td><td>~:0(&lt;built-in method _locale.nl_langinfo&gt;)</td></tr><tr role="row" class="even"><td>1</td><td class="sorting_1">7e-06</td><td>7e-06</td><td>1.4e-05</td><td>1.4e-05</td><td>_bootlocale.py:33(getpreferredencoding)</td></tr><tr role="row" class="odd"><td>1</td><td class="sorting_1">4e-06</td><td>4e-06</td><td>4e-06</td><td>4e-06</td><td>~:0(&lt;method 'format' of 'str' objects&gt;)</td></tr><tr role="row" class="even"><td>1</td><td class="sorting_1">3e-06</td><td>3e-06</td><td>5e-06</td><td>5e-06</td><td>codecs.py:309(__init__)</td></tr><tr role="row" class="odd"><td>1</td><td class="sorting_1">2e-06</td><td>2e-06</td><td>2e-06</td><td>2e-06</td><td>codecs.py:260(__init__)</td></tr><tr role="row" class="even"><td>1</td><td class="sorting_1">1e-06</td><td>1e-06</td><td>1e-06</td><td>1e-06</td><td>~:0(&lt;method 'disable' of '_lsprof.Profiler' objects&gt;)</td></tr></tbody></table><div class="dataTables_info" id="pstats-table_info" role="status" aria-live="polite">Showing 1 to 14 of 14 entries</div></div>
+</div>
+<!-- footer -->
+<footer class="sv-footer">
+<a class="footer-link" href="https://jiffyclub.github.io/snakeviz/">SnakeViz Docs</a>
+</footer>
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- Vendor JS -->
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/vendor/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/vendor/d3.v3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/vendor/jquery.dataTables.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/vendor/lodash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/vendor/immutable.min.js"></script>
+<!-- SnakeViz JS -->
+<script>
+// Make the stats table
+var table_data = [[['1', 1], '4e-06', '4e-06', '4e-06', '4e-06', '~:0(&lt;method &#39;format&#39; of &#39;str&#39; objects&gt;)', "~:0(<method 'format' of 'str' objects>)"], [['1', 1], '0.8477', '0.8477', '0.8477', '0.8477', '~:0(&lt;built-in method posix.system&gt;)', '~:0(<built-in method posix.system>)'], [['1', 1], '7.5e-05', '7.5e-05', '9.4e-05', '9.4e-05', '~:0(&lt;built-in method io.open&gt;)', '~:0(<built-in method io.open>)'], [['1', 1], '7e-06', '7e-06', '7e-06', '7e-06', '~:0(&lt;built-in method _locale.nl_langinfo&gt;)', '~:0(<built-in method _locale.nl_langinfo>)'], [['4381', 4381], '0.008379', '1.913e-06', '0.008379', '1.913e-06', '~:0(&lt;built-in method _codecs.utf_8_decode&gt;)', '~:0(<built-in method _codecs.utf_8_decode>)'], [['1', 1], '5.6e-05', '5.6e-05', '1.003', '1.003', '~:0(&lt;built-in method builtins.exec&gt;)', '~:0(<built-in method builtins.exec>)'], [['1', 1], '0.02603', '0.02603', '0.9902', '0.9902', 'test_processes.py:6(to_list)', '/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:6(to_list)'], [['242726', 242726], '0.1039', '4.281e-07', '0.9642', '3.972e-06', 'test_processes.py:39(find_custom_mem_search)', '/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:39(find_custom_mem_search)'], [['1', 1], '0.01226', '0.01226', '1.003', '1.003', '&lt;string&gt;:1(&lt;module&gt;)', '<string>:1(<module>)'], [['1', 1], '7e-06', '7e-06', '1.4e-05', '1.4e-05', '_bootlocale.py:33(getpreferredencoding)', '/usr/lib/python3.7/_bootlocale.py:33(getpreferredencoding)'], [['1', 1], '2e-06', '2e-06', '2e-06', '2e-06', 'codecs.py:260(__init__)', '/usr/lib/python3.7/codecs.py:260(__init__)'], [['1', 1], '3e-06', '3e-06', '5e-06', '5e-06', 'codecs.py:309(__init__)', '/usr/lib/python3.7/codecs.py:309(__init__)'], [['4381', 4381], '0.004173', '9.525e-07', '0.01255', '2.865e-06', 'codecs.py:319(decode)', '/usr/lib/python3.7/codecs.py:319(decode)'], [['1', 1], '1e-06', '1e-06', '1e-06', '1e-06', '~:0(&lt;method &#39;disable&#39; of &#39;_lsprof.Profiler&#39; objects&gt;)', "~:0(<method 'disable' of '_lsprof.Profiler' objects>)"]];
+$(document).ready(function() {
+var table = $('#pstats-table').dataTable({
+'data': table_data,
+'columns': [
+{'title': 'ncalls', 'type': 'num', 'searchable': 'false',
+'data': {
+'_': function (row) {return row[0][0];},
+'sort': function (row) {return row[0][1]}
+}},
+{'title': 'tottime', 'type': 'num', 'searchable': 'false'},
+{'title': 'percall', 'type': 'num', 'searchable': 'false'},
+{'title': 'cumtime', 'type': 'num', 'searchable': 'false'},
+{'title': 'percall', 'type': 'num', 'searchable': 'false'},
+{'title': 'filename:lineno(function)'}
+],
+'order': [1, 'desc'],
+'paging': false
+}).api();
+$('#pstats-table tbody').on('click', 'tr', function() {
+var name = table.row(this).data()[6];
+sv_root_func_name = name;
+sv_draw_vis(name);
+sv_call_stack = [name];
+sv_update_call_stack_list();
+$('#resetbutton-zoom').prop('disabled', true);
+$('#resetbutton-root').prop('disabled', false);
+}).on('mouseenter', 'tr', function () {
+$(this).children('td').addClass('data-table-hover');
+}).on('mouseleave', 'tr', function () {
+$(this).children('td').removeClass('data-table-hover');
+});
+});
+</script>
+<!-- Web worker code for generating D3 JSON in a separate thread -->
+<script id="hierarchy-worker" type="javascript/worker">
+// This will all go into a web worker that will be used to generate
+// the visualization JSON while leaving the rest of the app responsive.
+//
+// We put this here instead of in a separate JS file so that the worker
+// can be stopped and restarted without loading the code from the server,
+// and so that the stats data can be embedded in the worker.
+var stats = {"~:0(<method 'format' of 'str' objects>)": {'children': {}, 'stats': [1, 1, 4e-06, 4e-06], 'callers': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:39(find_custom_mem_search)': [1, 1, 4e-06, 4e-06]}, 'display_name': "~:0(<method 'format' of 'str' objects>)"}, '/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:39(find_custom_mem_search)': {'children': {"~:0(<method 'format' of 'str' objects>)": [1, 1, 4e-06, 4e-06], '~:0(<built-in method posix.system>)': [1, 1, 0.8476549999999999, 0.8476549999999999], '~:0(<built-in method io.open>)': [1, 1, 7.5e-05, 9.4e-05], '/usr/lib/python3.7/codecs.py:319(decode)': [4381, 4381, 0.004173, 0.012551999999999999]}, 'stats': [242726, 242726, 0.103907, 0.964212], 'callers': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:6(to_list)': [242726, 242726, 0.103907, 0.964212]}, 'display_name': 'test_processes.py:39(find_custom_mem_search)'}, '~:0(<built-in method posix.system>)': {'children': {}, 'stats': [1, 1, 0.8476549999999999, 0.8476549999999999], 'callers': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:39(find_custom_mem_search)': [1, 1, 0.8476549999999999, 0.8476549999999999]}, 'display_name': '~:0(<built-in method posix.system>)'}, '~:0(<built-in method io.open>)': {'children': {'/usr/lib/python3.7/_bootlocale.py:33(getpreferredencoding)': [1, 1, 7e-06, 1.4e-05], '/usr/lib/python3.7/codecs.py:309(__init__)': [1, 1, 3e-06, 4.9999999999999996e-06]}, 'stats': [1, 1, 7.5e-05, 9.4e-05], 'callers': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:39(find_custom_mem_search)': [1, 1, 7.5e-05, 9.4e-05]}, 'display_name': '~:0(<built-in method io.open>)'}, '~:0(<built-in method _locale.nl_langinfo>)': {'children': {}, 'stats': [1, 1, 7e-06, 7e-06], 'callers': {'/usr/lib/python3.7/_bootlocale.py:33(getpreferredencoding)': [1, 1, 7e-06, 7e-06]}, 'display_name': '~:0(<built-in method _locale.nl_langinfo>)'}, '/usr/lib/python3.7/_bootlocale.py:33(getpreferredencoding)': {'children': {'~:0(<built-in method _locale.nl_langinfo>)': [1, 1, 7e-06, 7e-06]}, 'stats': [1, 1, 7e-06, 1.4e-05], 'callers': {'~:0(<built-in method io.open>)': [1, 1, 7e-06, 1.4e-05]}, 'display_name': '_bootlocale.py:33(getpreferredencoding)'}, '~:0(<built-in method _codecs.utf_8_decode>)': {'children': {}, 'stats': [4381, 4381, 0.008379, 0.008379], 'callers': {'/usr/lib/python3.7/codecs.py:319(decode)': [4381, 4381, 0.008379, 0.008379]}, 'display_name': '~:0(<built-in method _codecs.utf_8_decode>)'}, '/usr/lib/python3.7/codecs.py:319(decode)': {'children': {'~:0(<built-in method _codecs.utf_8_decode>)': [4381, 4381, 0.008379, 0.008379]}, 'stats': [4381, 4381, 0.004173, 0.012551999999999999], 'callers': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:39(find_custom_mem_search)': [4381, 4381, 0.004173, 0.012551999999999999]}, 'display_name': 'codecs.py:319(decode)'}, '~:0(<built-in method builtins.exec>)': {'children': {'<string>:1(<module>)': [1, 1, 0.012265, 1.002503]}, 'stats': [1, 1, 5.6e-05, 1.002559], 'callers': {}, 'display_name': '~:0(<built-in method builtins.exec>)'}, '/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:6(to_list)': {'children': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:39(find_custom_mem_search)': [242726, 242726, 0.103907, 0.964212]}, 'stats': [1, 1, 0.026026, 0.990238], 'callers': {'<string>:1(<module>)': [1, 1, 0.026026, 0.990238]}, 'display_name': 'test_processes.py:6(to_list)'}, '<string>:1(<module>)': {'children': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:6(to_list)': [1, 1, 0.026026, 0.990238]}, 'stats': [1, 1, 0.012265, 1.002503], 'callers': {'~:0(<built-in method builtins.exec>)': [1, 1, 0.012265, 1.002503]}, 'display_name': '<string>:1(<module>)'}, '/usr/lib/python3.7/codecs.py:260(__init__)': {'children': {}, 'stats': [1, 1, 2e-06, 2e-06], 'callers': {'/usr/lib/python3.7/codecs.py:309(__init__)': [1, 1, 2e-06, 2e-06]}, 'display_name': 'codecs.py:260(__init__)'}, '/usr/lib/python3.7/codecs.py:309(__init__)': {'children': {'/usr/lib/python3.7/codecs.py:260(__init__)': [1, 1, 2e-06, 2e-06]}, 'stats': [1, 1, 3e-06, 4.9999999999999996e-06], 'callers': {'~:0(<built-in method io.open>)': [1, 1, 3e-06, 4.9999999999999996e-06]}, 'display_name': 'codecs.py:309(__init__)'}};
+function sv_build_hierarchy(
+node_name, depth, max_depth, cutoff, node_time, parent_name, call_stack) {
+// track visited functions so we can avoid infinitely displaying
+// instances of recursion
+if (_.isUndefined(call_stack)) {
+var call_stack = Immutable.Set([node_name])
+} else {
+var call_stack = call_stack.add(node_name);
+};
+var data = {
+name: node_name,
+display_name: stats[node_name]['display_name'],
+time: node_time,
+cumulative: stats[node_name]['stats'][3],
+parent_name: parent_name
+};
+if (depth < max_depth && !_.isEmpty(stats[node_name]['children'])) {
+child_names = {};
+for (var child_name in stats[node_name]['children']) {
+// Cut off children that have already been visited (recursion)
+if (!call_stack.contains(child_name)) {
+child_names[child_name] = stats[node_name]['children'][child_name];
+}
+}
+// Normalize the child times.
+// Unfortunately, stats[child_name]['callers'][node_name][3] doesn't
+// give us the time that child spend under node in this instance, but
+// in all instances across the call tree. Yikes!
+// This may lead to unexpected behavior, e.g., the child times add up
+// to more than the node time. A normalization is necessary.
+var child_times = {};
+var total_children_time = 0.0;
+for (var child_name in child_names) {
+child_times[child_name] = stats[child_name]['callers'][node_name][3];
+total_children_time += child_times[child_name];
+}
+if (total_children_time > node_time) {
+for (var child_name in child_names) {
+child_times[child_name] *= (node_time / total_children_time);
+}
+}
+data['children'] = [];
+// recurse
+for (var child_name in child_names) {
+if (child_times[child_name]/node_time > cutoff) {
+data['children'].push(
+sv_build_hierarchy(
+child_name, depth+1, max_depth, cutoff,
+child_times[child_name], node_name, call_stack
+));
+}
+}
+// D3, the plotting framework, only accounts for times in the leaf
+// nodes. Hence, if the node_time exceeds the total time in its
+// children, we need to add another child node to account for the the
+// time spent in node itself.
+if (total_children_time < node_time) {
+data['children'].push({
+name: node_name,
+display_name: data['display_name'],
+parent_name: data['parent_name'],
+cumulative: stats[node_name]['stats'][3],
+time: node_time - total_children_time
+});
+}
+}
+return data;
+}
+self.onmessage = function (event) {
+// Try loading JS from CDN in case snakeviz server is off
+try {
+importScripts(
+"https://cdnjs.cloudflare.com/ajax/libs/immutable/3.8.1/immutable.min.js",
+"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js");
+}
+// If the user is offline try loading from the SnakeViz server
+catch (e) {
+try {
+importScripts(
+event.data['url'] + "/static/vendor/immutable.min.js",
+event.data['url'] + "/static/vendor/lodash.min.js");
+}
+catch (e) {
+throw 'Could not load JS libraries in worker.';
+}
+}
+var depth = 0;
+var max_depth = event.data['depth'];
+var cutoff = event.data['cutoff'];
+var node_name = event.data['name'];
+var parent_name = event.data['parent_name'];
+var node_time = stats[node_name]['stats'][3];
+self.postMessage(JSON.stringify(
+sv_build_hierarchy(
+node_name, depth, max_depth, cutoff, node_time, parent_name
+)));
+};
+</script>
+<!-- Load SnakeViz JS Files -->
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/snakeviz.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/drawsvg.js"></script>
+<!-- Do initial setup stuff -->
+<script>
+// Initialize data
+$(document).ready(_.defer(function () {
+var profile_data = {"~:0(<method 'format' of 'str' objects>)": {'children': {}, 'stats': [1, 1, 4e-06, 4e-06], 'callers': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:39(find_custom_mem_search)': [1, 1, 4e-06, 4e-06]}, 'display_name': "~:0(<method 'format' of 'str' objects>)"}, '/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:39(find_custom_mem_search)': {'children': {"~:0(<method 'format' of 'str' objects>)": [1, 1, 4e-06, 4e-06], '~:0(<built-in method posix.system>)': [1, 1, 0.8476549999999999, 0.8476549999999999], '~:0(<built-in method io.open>)': [1, 1, 7.5e-05, 9.4e-05], '/usr/lib/python3.7/codecs.py:319(decode)': [4381, 4381, 0.004173, 0.012551999999999999]}, 'stats': [242726, 242726, 0.103907, 0.964212], 'callers': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:6(to_list)': [242726, 242726, 0.103907, 0.964212]}, 'display_name': 'test_processes.py:39(find_custom_mem_search)'}, '~:0(<built-in method posix.system>)': {'children': {}, 'stats': [1, 1, 0.8476549999999999, 0.8476549999999999], 'callers': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:39(find_custom_mem_search)': [1, 1, 0.8476549999999999, 0.8476549999999999]}, 'display_name': '~:0(<built-in method posix.system>)'}, '~:0(<built-in method io.open>)': {'children': {'/usr/lib/python3.7/_bootlocale.py:33(getpreferredencoding)': [1, 1, 7e-06, 1.4e-05], '/usr/lib/python3.7/codecs.py:309(__init__)': [1, 1, 3e-06, 4.9999999999999996e-06]}, 'stats': [1, 1, 7.5e-05, 9.4e-05], 'callers': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:39(find_custom_mem_search)': [1, 1, 7.5e-05, 9.4e-05]}, 'display_name': '~:0(<built-in method io.open>)'}, '~:0(<built-in method _locale.nl_langinfo>)': {'children': {}, 'stats': [1, 1, 7e-06, 7e-06], 'callers': {'/usr/lib/python3.7/_bootlocale.py:33(getpreferredencoding)': [1, 1, 7e-06, 7e-06]}, 'display_name': '~:0(<built-in method _locale.nl_langinfo>)'}, '/usr/lib/python3.7/_bootlocale.py:33(getpreferredencoding)': {'children': {'~:0(<built-in method _locale.nl_langinfo>)': [1, 1, 7e-06, 7e-06]}, 'stats': [1, 1, 7e-06, 1.4e-05], 'callers': {'~:0(<built-in method io.open>)': [1, 1, 7e-06, 1.4e-05]}, 'display_name': '_bootlocale.py:33(getpreferredencoding)'}, '~:0(<built-in method _codecs.utf_8_decode>)': {'children': {}, 'stats': [4381, 4381, 0.008379, 0.008379], 'callers': {'/usr/lib/python3.7/codecs.py:319(decode)': [4381, 4381, 0.008379, 0.008379]}, 'display_name': '~:0(<built-in method _codecs.utf_8_decode>)'}, '/usr/lib/python3.7/codecs.py:319(decode)': {'children': {'~:0(<built-in method _codecs.utf_8_decode>)': [4381, 4381, 0.008379, 0.008379]}, 'stats': [4381, 4381, 0.004173, 0.012551999999999999], 'callers': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:39(find_custom_mem_search)': [4381, 4381, 0.004173, 0.012551999999999999]}, 'display_name': 'codecs.py:319(decode)'}, '~:0(<built-in method builtins.exec>)': {'children': {'<string>:1(<module>)': [1, 1, 0.012265, 1.002503]}, 'stats': [1, 1, 5.6e-05, 1.002559], 'callers': {}, 'display_name': '~:0(<built-in method builtins.exec>)'}, '/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:6(to_list)': {'children': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:39(find_custom_mem_search)': [242726, 242726, 0.103907, 0.964212]}, 'stats': [1, 1, 0.026026, 0.990238], 'callers': {'<string>:1(<module>)': [1, 1, 0.026026, 0.990238]}, 'display_name': 'test_processes.py:6(to_list)'}, '<string>:1(<module>)': {'children': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:6(to_list)': [1, 1, 0.026026, 0.990238]}, 'stats': [1, 1, 0.012265, 1.002503], 'callers': {'~:0(<built-in method builtins.exec>)': [1, 1, 0.012265, 1.002503]}, 'display_name': '<string>:1(<module>)'}, '/usr/lib/python3.7/codecs.py:260(__init__)': {'children': {}, 'stats': [1, 1, 2e-06, 2e-06], 'callers': {'/usr/lib/python3.7/codecs.py:309(__init__)': [1, 1, 2e-06, 2e-06]}, 'display_name': 'codecs.py:260(__init__)'}, '/usr/lib/python3.7/codecs.py:309(__init__)': {'children': {'/usr/lib/python3.7/codecs.py:260(__init__)': [1, 1, 2e-06, 2e-06]}, 'stats': [1, 1, 3e-06, 4.9999999999999996e-06], 'callers': {'~:0(<built-in method io.open>)': [1, 1, 3e-06, 4.9999999999999996e-06]}, 'display_name': 'codecs.py:309(__init__)'}};
+sv_json_cache = {};
+sv_worker = sv_make_worker();
+sv_root_func_name = sv_find_root(profile_data);
+sv_root_func_name__cached = sv_root_func_name;
+sv_call_stack = [sv_root_func_name];
+sv_total_time = profile_data[sv_root_func_name]['stats'][3];
+}));
+// Initialize the call stack button
+$(document).ready(_.defer(function () {
+sv_update_call_stack_list();
+sv_call_stack_btn_for_show();
+}));
+// Draw the visualization
+$(document).ready(_.defer(function () {
+sv_draw_vis(sv_root_func_name);
+}));
+</script>
+
+
+</body></html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8" .="">
+<title>walk</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/snakeviz.css" rel="stylesheet">
+<!-- DataTables CSS -->
+<link href="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/vendor/jquery.dataTables.min.css" rel="stylesheet">
+</head><link type="text/css" id="dark-mode" rel="stylesheet" href=""><style type="text/css" id="dark-mode-custom-style"></style>
+<body>
+<h1 id="snakeviz-text">
+<a href="https://jiffyclub.github.io/snakeviz/">SnakeViz</a>
+</h1>
+<!-- reset button -->
+<span id="resetbuttons">
+<div class="button-div">
+<button id="resetbutton-root" disabled="True">Reset Root</button>
+</div>
+<div class="button-div">
+<button id="resetbutton-zoom" disabled="True">Reset Zoom</button>
+</div>
+</span>
+<!-- style select -->
+<label id="sv-style-label">Style:
+<select name="sv-style" id="sv-style-select">
+<option value="icicle" selected="selected">Icicle</option>
+<option value="sunburst">Sunburst</option>
+</select>
+</label>
+<!-- depth select -->
+<label id="sv-depth-label">Depth:
+<select name="sv-depth" id="sv-depth-select">
+
+<option value="3">3</option>
+
+<option value="5">5</option>
+
+<option value="10" selected="selected">10</option>
+
+<option value="15">15</option>
+
+<option value="20">20</option>
+
+</select>
+</label>
+<!-- cutoff select -->
+<label id="sv-cutoff-label">Cutoff:
+<select name="sv-cutoff" id="sv-cutoff-select">
+<option value="0.001" selected="selected">1 ⁄ 1000</option>
+<option value="0.01">1 ⁄ 100</option>
+<option value="0">None</option>
+</select>
+</label>
+<!-- information div -->
+<div id="sv-info-div" class="icicle" style="height: 581.4px; width: 200px; display: none;"><div class="sv-info-label">Name:</div>
+<div class="sv-info-item">&lt;module&gt;</div>
+<div class="sv-info-label">Cumulative Time:</div>
+<div class="sv-info-item">3.01 s (100.00 %)</div>
+<div class="sv-info-label">File:</div>
+<div class="sv-info-item">&lt;string&gt;</div>
+<div class="sv-info-label">Line:</div>
+<div class="sv-info-item">1</div>
+<div class="sv-info-label">Directory:</div>
+<div class="sv-info-item"></div></div>
+<!-- call stack -->
+<div id="sv-call-stack">
+<div id="working-spinner" class="spinner" style="display: none;">
+<div class="bounce1"></div>
+<div class="bounce2"></div>
+<div class="bounce3"></div>
+</div>
+<div style="display: inline-block;">
+<button id="sv-call-stack-btn">Call Stack</button>
+</div>
+<div id="sv-call-stack-list"><div><span>0.&nbsp;</span><span>~:0(&lt;built-in method builtins.exec&gt;)</span></div></div>
+</div>
+<!-- Error message -->
+<div id="sv-error-div" class="sv-error-msg">
+<p>
+An error occurred processing your profile.
+You can try a lower depth, a larger cutoff,
+or try profiling a smaller portion of your code.
+If you continue to have problems you can
+<a href="https://github.com/jiffyclub/snakeviz/issues">
+contact us on GitHub</a>.
+</p>
+<div id="sv-error-close-div" class="sv-error-close">Close</div>
+</div>
+<!-- vis -->
+<div style="text-align: center;">
+<div id="chart" style="margin-left: auto; margin-right: auto;"><svg width="1440" height="775.2"><g id="container" transform="translate(90,60)"><rect id="path-0" x="0" y="0" width="1350" height="71.52000000000001" fill-rule="evenodd" fill="#3182bd" stroke="#FFF" style="fill: rgb(49, 130, 189);"></rect><rect id="path-1" x="0" y="71.52000000000001" width="1349.9712802048145" height="71.52000000000001" fill-rule="evenodd" fill="#6baed6" stroke="#FFF" style="fill: rgb(107, 174, 214);"></rect><rect id="path-2" x="0" y="143.04000000000002" width="1343.705428639619" height="71.52000000000001" fill-rule="evenodd" fill="#9ecae1" stroke="#FFF"></rect><rect id="path-3" x="0" y="214.56000000000006" width="1323.278923060865" height="71.52000000000001" fill-rule="evenodd" fill="#c6dbef" stroke="#FFF" style="fill: rgb(198, 219, 239);"></rect><rect id="path-4" x="1319.8810122930029" y="286.08000000000004" width="3.397910767862282" height="71.52000000000001" fill-rule="evenodd" fill="#e6550d" stroke="#FFF"></rect><rect id="path-5" x="1301.3760405108665" y="286.08000000000004" width="18.504971782136415" height="71.52000000000001" fill-rule="evenodd" fill="#fd8d3c" stroke="#FFF"></rect><rect id="path-6" x="803.9406617120586" y="286.08000000000004" width="373.73742594846783" height="71.52000000000001" fill-rule="evenodd" fill="#fdae6b" stroke="#FFF"></rect><rect id="path-7" x="1101.2313778388218" y="357.6" width="29.038405413149537" height="71.52000000000001" fill-rule="evenodd" fill="#fdd0a2" stroke="#FFF"></rect><rect id="path-8" x="1130.2697832519714" y="357.6" width="26.228801699786388" height="71.52000000000001" fill-rule="evenodd" fill="#31a354" stroke="#FFF"></rect><rect id="path-9" x="1156.4985849517577" y="357.6" width="21.179502708768634" height="71.52000000000001" fill-rule="evenodd" fill="#74c476" stroke="#FFF"></rect><rect id="path-10" x="1027.0445569007616" y="357.6" width="74.1868209380603" height="71.52000000000001" fill-rule="evenodd" fill="#a1d99b" stroke="#FFF"></rect><rect id="path-11" x="1074.8809657562977" y="429.1200000000001" width="26.350412082524198" height="71.52000000000001" fill-rule="evenodd" fill="#c7e9c0" stroke="#FFF"></rect><rect id="path-12" x="1027.0445569007616" y="429.1200000000001" width="47.8364088555361" height="71.52000000000001" fill-rule="evenodd" fill="#a1d99b" stroke="#FFF"></rect><rect id="path-13" x="803.9406617120586" y="357.6" width="223.10389518870298" height="71.52000000000001" fill-rule="evenodd" fill="#fdae6b" stroke="#FFF"></rect><rect id="path-14" x="0" y="286.08000000000004" width="803.9406617120586" height="71.52000000000001" fill-rule="evenodd" fill="#756bb1" stroke="#FFF" style="fill: rgb(117, 107, 177);"></rect><rect id="path-15" x="782.3774804894862" y="357.6" width="18.89089402993905" height="71.52000000000001" fill-rule="evenodd" fill="#9e9ac8" stroke="#FFF"></rect><rect id="path-16" x="752.0879689985765" y="357.6" width="30.289511490909717" height="71.52000000000001" fill-rule="evenodd" fill="#bcbddc" stroke="#FFF"></rect><rect id="path-17" x="627.1164727304879" y="357.6" width="72.0139889335715" height="71.52000000000001" fill-rule="evenodd" fill="#dadaeb" stroke="#FFF"></rect><rect id="path-18" x="801.2683745194252" y="357.6" width="2.6722871926333713" height="71.52000000000001" fill-rule="evenodd" fill="#74c476" stroke="#FFF"></rect><rect id="path-19" x="0" y="357.6" width="286.8434418813061" height="71.52000000000001" fill-rule="evenodd" fill="#636363" stroke="#FFF" style="fill: rgb(99, 99, 99);"></rect><rect id="path-20" x="699.1304616640593" y="357.6" width="52.95750733451713" height="71.52000000000001" fill-rule="evenodd" fill="#fdae6b" stroke="#FFF"></rect><rect id="path-21" x="725.211966187893" y="429.1200000000001" width="10.208892800249657" height="71.52000000000001" fill-rule="evenodd" fill="#fdd0a2" stroke="#FFF"></rect><rect id="path-22" x="735.4208589881425" y="429.1200000000001" width="9.22113390946982" height="71.52000000000001" fill-rule="evenodd" fill="#31a354" stroke="#FFF"></rect><rect id="path-23" x="744.6419928976122" y="429.1200000000001" width="7.44597610096404" height="71.52000000000001" fill-rule="evenodd" fill="#74c476" stroke="#FFF"></rect><rect id="path-24" x="699.1304616640593" y="429.1200000000001" width="26.081504523833612" height="71.52000000000001" fill-rule="evenodd" fill="#a1d99b" stroke="#FFF"></rect><rect id="path-25" x="699.1304616640593" y="500.6400000000001" width="26.081504523833612" height="71.52000000000001" fill-rule="evenodd" fill="#c7e9c0" stroke="#FFF"></rect><rect id="path-26" x="536.2192184625734" y="357.6" width="90.89725426791445" height="71.52000000000001" fill-rule="evenodd" fill="#969696" stroke="#FFF"></rect><rect id="path-27" x="536.2192184625734" y="429.1200000000001" width="72.37971757538446" height="71.52000000000001" fill-rule="evenodd" fill="#bdbdbd" stroke="#FFF"></rect><rect id="path-28" x="624.4868164838326" y="429.1200000000001" width="2.629656246655174" height="71.52000000000001" fill-rule="evenodd" fill="#d9d9d9" stroke="#FFF"></rect><rect id="path-29" x="608.5989360379579" y="429.1200000000001" width="15.887880445874814" height="71.52000000000001" fill-rule="evenodd" fill="#969696" stroke="#FFF"></rect><rect id="path-30" x="286.8434418813061" y="357.6" width="249.37577658126727" height="71.52000000000001" fill-rule="evenodd" fill="#756bb1" stroke="#FFF" style="fill: rgb(117, 107, 177);"></rect><rect id="path-31" x="1177.6780876605264" y="286.08000000000004" width="123.69795285033993" height="71.52000000000001" fill-rule="evenodd" fill="#c6dbef" stroke="#FFF" style="fill: rgb(198, 219, 239);"></rect><rect id="path-32" x="1323.278923060865" y="214.56000000000006" width="20.42650557875377" height="71.52000000000001" fill-rule="evenodd" fill="#9ecae1" stroke="#FFF"></rect><rect id="path-33" x="1343.705428639619" y="143.04000000000002" width="6.2658515651955735" height="71.52000000000001" fill-rule="evenodd" fill="#6baed6" stroke="#FFF" style="fill: rgb(107, 174, 214);"></rect><text x="675" y="35.760000000000005" width="1350" height="71.52000000000001" font-family="sans-serif" font-size="15px" fill="black" text-anchor="middle" pointer-events="none"><tspan text-anchor="middle" x="675">~:0(&lt;built-in method builtins.exec&gt;)</tspan><tspan text-anchor="middle" x="675" dy="1.2em">3.01 s</tspan></text><text x="674.9856401024073" y="107.28000000000003" width="1349.9712802048145" height="71.52000000000001" font-family="sans-serif" font-size="15px" fill="black" text-anchor="middle" pointer-events="none"><tspan text-anchor="middle" x="674.9856401024073">&lt;string&gt;:1(&lt;module&gt;)</tspan><tspan text-anchor="middle" x="674.9856401024073" dy="1.2em">3.01 s</tspan></text><text x="671.8527143198095" y="178.8" width="1343.705428639619" height="71.52000000000001" font-family="sans-serif" font-size="15px" fill="black" text-anchor="middle" pointer-events="none"><tspan text-anchor="middle" x="671.8527143198095">test_processes.py:6(to_list)</tspan><tspan text-anchor="middle" x="671.8527143198095" dy="1.2em">2.99 s</tspan></text><text x="661.6394615304325" y="250.32000000000005" width="1323.278923060865" height="71.52000000000001" font-family="sans-serif" font-size="15px" fill="black" text-anchor="middle" pointer-events="none"><tspan text-anchor="middle" x="661.6394615304325">test_processes.py:24(walk_search)</tspan><tspan text-anchor="middle" x="661.6394615304325" dy="1.2em">2.95 s</tspan></text><text x="990.8093746862925" y="321.84000000000003" width="373.73742594846783" height="71.52000000000001" font-family="sans-serif" font-size="15px" fill="black" text-anchor="middle" pointer-events="none"><tspan text-anchor="middle" x="990.8093746862925">posixpath.py:75(join)</tspan><tspan text-anchor="middle" x="990.8093746862925" dy="1.2em">0.951 s</tspan></text><text x="915.4926093064101" y="393.35999999999996" width="223.10389518870298" height="71.52000000000001" font-family="sans-serif" font-size="15px" fill="black" text-anchor="middle" pointer-events="none"><tspan text-anchor="middle" x="915.4926093064101">posixpath.py:75(join)</tspan><tspan text-anchor="middle" x="915.4926093064101" dy="1.2em">0.951 s</tspan></text><text x="401.9703308560293" y="321.84000000000003" width="803.9406617120586" height="71.52000000000001" font-family="sans-serif" font-size="15px" fill="black" text-anchor="middle" pointer-events="none"><tspan text-anchor="middle" x="401.9703308560293">os.py:278(walk)</tspan><tspan text-anchor="middle" x="401.9703308560293" dy="1.2em">1.79 s</tspan></text><text x="143.42172094065305" y="393.35999999999996" width="286.8434418813061" height="71.52000000000001" font-family="sans-serif" font-size="15px" fill="black" text-anchor="middle" pointer-events="none"><tspan text-anchor="middle" x="143.42172094065305">~:0(&lt;built-in method builtins.next&gt;)</tspan><tspan text-anchor="middle" x="143.42172094065305" dy="1.2em">0.639 s</tspan></text><text x="411.5313301719397" y="393.35999999999996" width="249.37577658126727" height="71.52000000000001" font-family="sans-serif" font-size="15px" fill="black" text-anchor="middle" pointer-events="none"><tspan text-anchor="middle" x="411.5313301719397">os.py:278(walk)</tspan><tspan text-anchor="middle" x="411.5313301719397" dy="1.2em">1.79 s</tspan></text></g></svg></div>
+</div>
+<br>
+<!-- stats table -->
+<div id="table_div">
+<div id="pstats-table_wrapper" class="dataTables_wrapper no-footer"><div id="pstats-table_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="pstats-table"></label></div><table class="display dataTable no-footer" id="pstats-table" role="grid" aria-describedby="pstats-table_info" style="width: 1853px;" cellspacing="0" cellpadding="0" border="0">
+<thead><tr role="row"><th class="sorting" tabindex="0" aria-controls="pstats-table" rowspan="1" colspan="1" style="width: 220px;" aria-label="ncalls: activate to sort column ascending">ncalls</th><th class="sorting_desc" tabindex="0" aria-controls="pstats-table" rowspan="1" colspan="1" style="width: 154px;" aria-sort="descending" aria-label="tottime: activate to sort column ascending">tottime</th><th class="sorting" tabindex="0" aria-controls="pstats-table" rowspan="1" colspan="1" style="width: 152px;" aria-label="percall: activate to sort column ascending">percall</th><th class="sorting" tabindex="0" aria-controls="pstats-table" rowspan="1" colspan="1" style="width: 178px;" aria-label="cumtime: activate to sort column ascending">cumtime</th><th class="sorting" tabindex="0" aria-controls="pstats-table" rowspan="1" colspan="1" style="width: 152px;" aria-label="percall: activate to sort column ascending">percall</th><th class="sorting" tabindex="0" aria-controls="pstats-table" rowspan="1" colspan="1" style="width: 781px;" aria-label="filename:lineno(function): activate to sort column ascending">filename:lineno(function)</th></tr></thead><tbody><tr role="row" class="odd"><td>342721</td><td class="sorting_1">0.6392</td><td>1.865e-06</td><td>0.6392</td><td>1.865e-06</td><td>~:0(&lt;built-in method builtins.next&gt;)</td></tr><tr role="row" class="even"><td>260388</td><td class="sorting_1">0.6152</td><td>2.363e-06</td><td>0.9509</td><td>3.652e-06</td><td>posixpath.py:75(join)</td></tr><tr role="row" class="odd"><td>364258/30262</td><td class="sorting_1">0.5557</td><td>1.836e-05</td><td>1.792</td><td>5.92e-05</td><td>os.py:278(walk)</td></tr><tr role="row" class="even"><td>230065</td><td class="sorting_1">0.2757</td><td>1.198e-06</td><td>2.949</td><td>1.282e-05</td><td>test_processes.py:24(walk_search)</td></tr><tr role="row" class="odd"><td>30324</td><td class="sorting_1">0.1613</td><td>5.319e-06</td><td>0.1613</td><td>5.319e-06</td><td>~:0(&lt;built-in method posix.lstat&gt;)</td></tr><tr role="row" class="even"><td>30261</td><td class="sorting_1">0.1605</td><td>5.303e-06</td><td>0.1605</td><td>5.303e-06</td><td>~:0(&lt;built-in method posix.scandir&gt;)</td></tr><tr role="row" class="odd"><td>260388</td><td class="sorting_1">0.1066</td><td>4.094e-07</td><td>0.1653</td><td>6.349e-07</td><td>posixpath.py:41(_get_sep)</td></tr><tr role="row" class="even"><td>312460</td><td class="sorting_1">0.0675</td><td>2.16e-07</td><td>0.0675</td><td>2.16e-07</td><td>~:0(&lt;method 'is_dir' of 'posix.DirEntry' objects&gt;)</td></tr><tr role="row" class="odd"><td>260388</td><td class="sorting_1">0.06471</td><td>2.485e-07</td><td>0.06471</td><td>2.485e-07</td><td>~:0(&lt;method 'startswith' of 'str' objects&gt;)</td></tr><tr role="row" class="even"><td>260388</td><td class="sorting_1">0.05872</td><td>2.255e-07</td><td>0.05872</td><td>2.255e-07</td><td>~:0(&lt;built-in method builtins.isinstance&gt;)</td></tr><tr role="row" class="odd"><td>260388</td><td class="sorting_1">0.05845</td><td>2.245e-07</td><td>0.05845</td><td>2.245e-07</td><td>~:0(&lt;method 'endswith' of 'str' objects&gt;)</td></tr><tr role="row" class="even"><td>290649</td><td class="sorting_1">0.05315</td><td>1.829e-07</td><td>0.05315</td><td>1.829e-07</td><td>~:0(&lt;built-in method posix.fspath&gt;)</td></tr><tr role="row" class="odd"><td>1</td><td class="sorting_1">0.04552</td><td>0.04552</td><td>2.994</td><td>2.994</td><td>test_processes.py:6(to_list)</td></tr><tr role="row" class="even"><td>312460</td><td class="sorting_1">0.0421</td><td>1.347e-07</td><td>0.0421</td><td>1.347e-07</td><td>~:0(&lt;method 'append' of 'list' objects&gt;)</td></tr><tr role="row" class="odd"><td>30261</td><td class="sorting_1">0.04124</td><td>1.363e-06</td><td>0.04124</td><td>1.363e-06</td><td>test_processes.py:27(&lt;listcomp&gt;)</td></tr><tr role="row" class="even"><td>30324</td><td class="sorting_1">0.0354</td><td>1.168e-06</td><td>0.2026</td><td>6.68e-06</td><td>posixpath.py:168(islink)</td></tr><tr role="row" class="odd"><td>1</td><td class="sorting_1">0.01396</td><td>0.01396</td><td>3.008</td><td>3.008</td><td>&lt;string&gt;:1(&lt;module&gt;)</td></tr><tr role="row" class="even"><td>30261</td><td class="sorting_1">0.007572</td><td>2.502e-07</td><td>0.007572</td><td>2.502e-07</td><td>~:0(&lt;built-in method builtins.any&gt;)</td></tr><tr role="row" class="odd"><td>30324</td><td class="sorting_1">0.00586</td><td>1.932e-07</td><td>0.00586</td><td>1.932e-07</td><td>~:0(&lt;built-in method _stat.S_ISLNK&gt;)</td></tr><tr role="row" class="even"><td>1</td><td class="sorting_1">6.4e-05</td><td>6.4e-05</td><td>3.008</td><td>3.008</td><td>~:0(&lt;built-in method builtins.exec&gt;)</td></tr><tr role="row" class="odd"><td>1</td><td class="sorting_1">1e-06</td><td>1e-06</td><td>1e-06</td><td>1e-06</td><td>~:0(&lt;method 'disable' of '_lsprof.Profiler' objects&gt;)</td></tr></tbody></table><div class="dataTables_info" id="pstats-table_info" role="status" aria-live="polite">Showing 1 to 21 of 21 entries</div></div>
+</div>
+<!-- footer -->
+<footer class="sv-footer">
+<a class="footer-link" href="https://jiffyclub.github.io/snakeviz/">SnakeViz Docs</a>
+</footer>
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- Vendor JS -->
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/vendor/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/vendor/d3.v3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/vendor/jquery.dataTables.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/vendor/lodash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/vendor/immutable.min.js"></script>
+<!-- SnakeViz JS -->
+<script>
+// Make the stats table
+var table_data = [[['260388', 260388], '0.06471', '2.485e-07', '0.06471', '2.485e-07', '~:0(&lt;method &#39;startswith&#39; of &#39;str&#39; objects&gt;)', "~:0(<method 'startswith' of 'str' objects>)"], [['260388', 260388], '0.05845', '2.245e-07', '0.05845', '2.245e-07', '~:0(&lt;method &#39;endswith&#39; of &#39;str&#39; objects&gt;)', "~:0(<method 'endswith' of 'str' objects>)"], [['312460', 312460], '0.0421', '1.347e-07', '0.0421', '1.347e-07', '~:0(&lt;method &#39;append&#39; of &#39;list&#39; objects&gt;)', "~:0(<method 'append' of 'list' objects>)"], [['312460', 312460], '0.0675', '2.16e-07', '0.0675', '2.16e-07', '~:0(&lt;method &#39;is_dir&#39; of &#39;posix.DirEntry&#39; objects&gt;)', "~:0(<method 'is_dir' of 'posix.DirEntry' objects>)"], [['30324', 30324], '0.1613', '5.319e-06', '0.1613', '5.319e-06', '~:0(&lt;built-in method posix.lstat&gt;)', '~:0(<built-in method posix.lstat>)'], [['30261', 30261], '0.1605', '5.303e-06', '0.1605', '5.303e-06', '~:0(&lt;built-in method posix.scandir&gt;)', '~:0(<built-in method posix.scandir>)'], [['290649', 290649], '0.05315', '1.829e-07', '0.05315', '1.829e-07', '~:0(&lt;built-in method posix.fspath&gt;)', '~:0(<built-in method posix.fspath>)'], [['30324', 30324], '0.00586', '1.932e-07', '0.00586', '1.932e-07', '~:0(&lt;built-in method _stat.S_ISLNK&gt;)', '~:0(<built-in method _stat.S_ISLNK>)'], [['30261', 30261], '0.007572', '2.502e-07', '0.007572', '2.502e-07', '~:0(&lt;built-in method builtins.any&gt;)', '~:0(<built-in method builtins.any>)'], [['1', 1], '6.4e-05', '6.4e-05', '3.008', '3.008', '~:0(&lt;built-in method builtins.exec&gt;)', '~:0(<built-in method builtins.exec>)'], [['260388', 260388], '0.05872', '2.255e-07', '0.05872', '2.255e-07', '~:0(&lt;built-in method builtins.isinstance&gt;)', '~:0(<built-in method builtins.isinstance>)'], [['342721', 342721], '0.6392', '1.865e-06', '0.6392', '1.865e-06', '~:0(&lt;built-in method builtins.next&gt;)', '~:0(<built-in method builtins.next>)'], [['1', 1], '0.04552', '0.04552', '2.994', '2.994', 'test_processes.py:6(to_list)', '/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:6(to_list)'], [['30261', 30261], '0.04124', '1.363e-06', '0.04124', '1.363e-06', 'test_processes.py:27(&lt;listcomp&gt;)', '/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:27(<listcomp>)'], [['230065', 230065], '0.2757', '1.198e-06', '2.949', '1.282e-05', 'test_processes.py:24(walk_search)', '/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:24(walk_search)'], [['1', 1], '0.01396', '0.01396', '3.008', '3.008', '&lt;string&gt;:1(&lt;module&gt;)', '<string>:1(<module>)'], [['260388', 260388], '0.1066', '4.094e-07', '0.1653', '6.349e-07', 'posixpath.py:41(_get_sep)', '/usr/lib/python3.7/posixpath.py:41(_get_sep)'], [['260388', 260388], '0.6152', '2.363e-06', '0.9509', '3.652e-06', 'posixpath.py:75(join)', '/usr/lib/python3.7/posixpath.py:75(join)'], [['30324', 30324], '0.0354', '1.168e-06', '0.2026', '6.68e-06', 'posixpath.py:168(islink)', '/usr/lib/python3.7/posixpath.py:168(islink)'], [['364258/30262', 364258], '0.5557', '1.836e-05', '1.792', '5.92e-05', 'os.py:278(walk)', '/usr/lib/python3.7/os.py:278(walk)'], [['1', 1], '1e-06', '1e-06', '1e-06', '1e-06', '~:0(&lt;method &#39;disable&#39; of &#39;_lsprof.Profiler&#39; objects&gt;)', "~:0(<method 'disable' of '_lsprof.Profiler' objects>)"]];
+$(document).ready(function() {
+var table = $('#pstats-table').dataTable({
+'data': table_data,
+'columns': [
+{'title': 'ncalls', 'type': 'num', 'searchable': 'false',
+'data': {
+'_': function (row) {return row[0][0];},
+'sort': function (row) {return row[0][1]}
+}},
+{'title': 'tottime', 'type': 'num', 'searchable': 'false'},
+{'title': 'percall', 'type': 'num', 'searchable': 'false'},
+{'title': 'cumtime', 'type': 'num', 'searchable': 'false'},
+{'title': 'percall', 'type': 'num', 'searchable': 'false'},
+{'title': 'filename:lineno(function)'}
+],
+'order': [1, 'desc'],
+'paging': false
+}).api();
+$('#pstats-table tbody').on('click', 'tr', function() {
+var name = table.row(this).data()[6];
+sv_root_func_name = name;
+sv_draw_vis(name);
+sv_call_stack = [name];
+sv_update_call_stack_list();
+$('#resetbutton-zoom').prop('disabled', true);
+$('#resetbutton-root').prop('disabled', false);
+}).on('mouseenter', 'tr', function () {
+$(this).children('td').addClass('data-table-hover');
+}).on('mouseleave', 'tr', function () {
+$(this).children('td').removeClass('data-table-hover');
+});
+});
+</script>
+<!-- Web worker code for generating D3 JSON in a separate thread -->
+<script id="hierarchy-worker" type="javascript/worker">
+// This will all go into a web worker that will be used to generate
+// the visualization JSON while leaving the rest of the app responsive.
+//
+// We put this here instead of in a separate JS file so that the worker
+// can be stopped and restarted without loading the code from the server,
+// and so that the stats data can be embedded in the worker.
+var stats = {"~:0(<method 'startswith' of 'str' objects>)": {'children': {}, 'stats': [260388, 260388, 0.06471, 0.06471], 'callers': {'/usr/lib/python3.7/posixpath.py:75(join)': [260388, 260388, 0.06471, 0.06471]}, 'display_name': "~:0(<method 'startswith' of 'str' objects>)"}, '/usr/lib/python3.7/posixpath.py:75(join)': {'children': {"~:0(<method 'startswith' of 'str' objects>)": [260388, 260388, 0.06471, 0.06471], "~:0(<method 'endswith' of 'str' objects>)": [260388, 260388, 0.058448999999999994, 0.058448999999999994], '~:0(<built-in method posix.fspath>)': [260388, 260388, 0.047196999999999996, 0.047196999999999996], '/usr/lib/python3.7/posixpath.py:41(_get_sep)': [260388, 260388, 0.1066, 0.16532]}, 'stats': [260388, 260388, 0.6151829999999999, 0.950859], 'callers': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:24(walk_search)': [230064, 230064, 0.538548, 0.832847], '/usr/lib/python3.7/os.py:278(walk)': [30324, 30324, 0.076635, 0.11801199999999999]}, 'display_name': 'posixpath.py:75(join)'}, "~:0(<method 'endswith' of 'str' objects>)": {'children': {}, 'stats': [260388, 260388, 0.058448999999999994, 0.058448999999999994], 'callers': {'/usr/lib/python3.7/posixpath.py:75(join)': [260388, 260388, 0.058448999999999994, 0.058448999999999994]}, 'display_name': "~:0(<method 'endswith' of 'str' objects>)"}, "~:0(<method 'append' of 'list' objects>)": {'children': {}, 'stats': [312460, 312460, 0.042096999999999996, 0.042096999999999996], 'callers': {'/usr/lib/python3.7/os.py:278(walk)': [312460, 312460, 0.042096999999999996, 0.042096999999999996]}, 'display_name': "~:0(<method 'append' of 'list' objects>)"}, '/usr/lib/python3.7/os.py:278(walk)': {'children': {"~:0(<method 'append' of 'list' objects>)": [312460, 312460, 0.042096999999999996, 0.042096999999999996], "~:0(<method 'is_dir' of 'posix.DirEntry' objects>)": [312460, 312460, 0.067498, 0.067498], '~:0(<built-in method posix.scandir>)': [30261, 30261, 0.16047799999999998, 0.16047799999999998], '~:0(<built-in method posix.fspath>)': [30261, 30261, 0.005954999999999999, 0.005954999999999999], '~:0(<built-in method builtins.next>)': [342721, 342721, 0.63921, 0.63921], '/usr/lib/python3.7/posixpath.py:75(join)': [30324, 30324, 0.076635, 0.11801199999999999], '/usr/lib/python3.7/posixpath.py:168(islink)': [30324, 30324, 0.035405, 0.202558], '/usr/lib/python3.7/os.py:278(walk)': [333996, 30270, 0.545154, 1.780816]}, 'stats': [30262, 364258, 0.555716, 1.791524], 'callers': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:24(walk_search)': [30262, 30262, 0.010562, 1.791524], '/usr/lib/python3.7/os.py:278(walk)': [333996, 30270, 0.545154, 1.780816]}, 'display_name': 'os.py:278(walk)'}, "~:0(<method 'is_dir' of 'posix.DirEntry' objects>)": {'children': {}, 'stats': [312460, 312460, 0.067498, 0.067498], 'callers': {'/usr/lib/python3.7/os.py:278(walk)': [312460, 312460, 0.067498, 0.067498]}, 'display_name': "~:0(<method 'is_dir' of 'posix.DirEntry' objects>)"}, '~:0(<built-in method posix.lstat>)': {'children': {}, 'stats': [30324, 30324, 0.161293, 0.161293], 'callers': {'/usr/lib/python3.7/posixpath.py:168(islink)': [30324, 30324, 0.161293, 0.161293]}, 'display_name': '~:0(<built-in method posix.lstat>)'}, '/usr/lib/python3.7/posixpath.py:168(islink)': {'children': {'~:0(<built-in method posix.lstat>)': [30324, 30324, 0.161293, 0.161293], '~:0(<built-in method _stat.S_ISLNK>)': [30324, 30324, 0.00586, 0.00586]}, 'stats': [30324, 30324, 0.035405, 0.202558], 'callers': {'/usr/lib/python3.7/os.py:278(walk)': [30324, 30324, 0.035405, 0.202558]}, 'display_name': 'posixpath.py:168(islink)'}, '~:0(<built-in method posix.scandir>)': {'children': {}, 'stats': [30261, 30261, 0.16047799999999998, 0.16047799999999998], 'callers': {'/usr/lib/python3.7/os.py:278(walk)': [30261, 30261, 0.16047799999999998, 0.16047799999999998]}, 'display_name': '~:0(<built-in method posix.scandir>)'}, '~:0(<built-in method posix.fspath>)': {'children': {}, 'stats': [290649, 290649, 0.053152, 0.053152], 'callers': {'/usr/lib/python3.7/posixpath.py:75(join)': [260388, 260388, 0.047196999999999996, 0.047196999999999996], '/usr/lib/python3.7/os.py:278(walk)': [30261, 30261, 0.005954999999999999, 0.005954999999999999]}, 'display_name': '~:0(<built-in method posix.fspath>)'}, '~:0(<built-in method _stat.S_ISLNK>)': {'children': {}, 'stats': [30324, 30324, 0.00586, 0.00586], 'callers': {'/usr/lib/python3.7/posixpath.py:168(islink)': [30324, 30324, 0.00586, 0.00586]}, 'display_name': '~:0(<built-in method _stat.S_ISLNK>)'}, '~:0(<built-in method builtins.any>)': {'children': {}, 'stats': [30261, 30261, 0.007572, 0.007572], 'callers': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:24(walk_search)': [30261, 30261, 0.007572, 0.007572]}, 'display_name': '~:0(<built-in method builtins.any>)'}, '/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:24(walk_search)': {'children': {'~:0(<built-in method builtins.any>)': [30261, 30261, 0.007572, 0.007572], '/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:27(<listcomp>)': [30261, 30261, 0.041236999999999996, 0.041236999999999996], '/usr/lib/python3.7/posixpath.py:75(join)': [230064, 230064, 0.538548, 0.832847], '/usr/lib/python3.7/os.py:278(walk)': [30262, 30262, 0.010562, 1.791524]}, 'stats': [230065, 230065, 0.275652, 2.948832], 'callers': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:6(to_list)': [230065, 230065, 0.275652, 2.948832]}, 'display_name': 'test_processes.py:24(walk_search)'}, '~:0(<built-in method builtins.exec>)': {'children': {'<string>:1(<module>)': [1, 1, 0.013963, 3.008314]}, 'stats': [1, 1, 6.4e-05, 3.008378], 'callers': {}, 'display_name': '~:0(<built-in method builtins.exec>)'}, '~:0(<built-in method builtins.isinstance>)': {'children': {}, 'stats': [260388, 260388, 0.058719999999999994, 0.058719999999999994], 'callers': {'/usr/lib/python3.7/posixpath.py:41(_get_sep)': [260388, 260388, 0.058719999999999994, 0.058719999999999994]}, 'display_name': '~:0(<built-in method builtins.isinstance>)'}, '/usr/lib/python3.7/posixpath.py:41(_get_sep)': {'children': {'~:0(<built-in method builtins.isinstance>)': [260388, 260388, 0.058719999999999994, 0.058719999999999994]}, 'stats': [260388, 260388, 0.1066, 0.16532], 'callers': {'/usr/lib/python3.7/posixpath.py:75(join)': [260388, 260388, 0.1066, 0.16532]}, 'display_name': 'posixpath.py:41(_get_sep)'}, '~:0(<built-in method builtins.next>)': {'children': {}, 'stats': [342721, 342721, 0.63921, 0.63921], 'callers': {'/usr/lib/python3.7/os.py:278(walk)': [342721, 342721, 0.63921, 0.63921]}, 'display_name': '~:0(<built-in method builtins.next>)'}, '/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:6(to_list)': {'children': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:24(walk_search)': [230065, 230065, 0.275652, 2.948832]}, 'stats': [1, 1, 0.045519, 2.994351], 'callers': {'<string>:1(<module>)': [1, 1, 0.045519, 2.994351]}, 'display_name': 'test_processes.py:6(to_list)'}, '<string>:1(<module>)': {'children': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:6(to_list)': [1, 1, 0.045519, 2.994351]}, 'stats': [1, 1, 0.013963, 3.008314], 'callers': {'~:0(<built-in method builtins.exec>)': [1, 1, 0.013963, 3.008314]}, 'display_name': '<string>:1(<module>)'}, '/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:27(<listcomp>)': {'children': {}, 'stats': [30261, 30261, 0.041236999999999996, 0.041236999999999996], 'callers': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:24(walk_search)': [30261, 30261, 0.041236999999999996, 0.041236999999999996]}, 'display_name': 'test_processes.py:27(<listcomp>)'}};
+function sv_build_hierarchy(
+node_name, depth, max_depth, cutoff, node_time, parent_name, call_stack) {
+// track visited functions so we can avoid infinitely displaying
+// instances of recursion
+if (_.isUndefined(call_stack)) {
+var call_stack = Immutable.Set([node_name])
+} else {
+var call_stack = call_stack.add(node_name);
+};
+var data = {
+name: node_name,
+display_name: stats[node_name]['display_name'],
+time: node_time,
+cumulative: stats[node_name]['stats'][3],
+parent_name: parent_name
+};
+if (depth < max_depth && !_.isEmpty(stats[node_name]['children'])) {
+child_names = {};
+for (var child_name in stats[node_name]['children']) {
+// Cut off children that have already been visited (recursion)
+if (!call_stack.contains(child_name)) {
+child_names[child_name] = stats[node_name]['children'][child_name];
+}
+}
+// Normalize the child times.
+// Unfortunately, stats[child_name]['callers'][node_name][3] doesn't
+// give us the time that child spend under node in this instance, but
+// in all instances across the call tree. Yikes!
+// This may lead to unexpected behavior, e.g., the child times add up
+// to more than the node time. A normalization is necessary.
+var child_times = {};
+var total_children_time = 0.0;
+for (var child_name in child_names) {
+child_times[child_name] = stats[child_name]['callers'][node_name][3];
+total_children_time += child_times[child_name];
+}
+if (total_children_time > node_time) {
+for (var child_name in child_names) {
+child_times[child_name] *= (node_time / total_children_time);
+}
+}
+data['children'] = [];
+// recurse
+for (var child_name in child_names) {
+if (child_times[child_name]/node_time > cutoff) {
+data['children'].push(
+sv_build_hierarchy(
+child_name, depth+1, max_depth, cutoff,
+child_times[child_name], node_name, call_stack
+));
+}
+}
+// D3, the plotting framework, only accounts for times in the leaf
+// nodes. Hence, if the node_time exceeds the total time in its
+// children, we need to add another child node to account for the the
+// time spent in node itself.
+if (total_children_time < node_time) {
+data['children'].push({
+name: node_name,
+display_name: data['display_name'],
+parent_name: data['parent_name'],
+cumulative: stats[node_name]['stats'][3],
+time: node_time - total_children_time
+});
+}
+}
+return data;
+}
+self.onmessage = function (event) {
+// Try loading JS from CDN in case snakeviz server is off
+try {
+importScripts(
+"https://cdnjs.cloudflare.com/ajax/libs/immutable/3.8.1/immutable.min.js",
+"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js");
+}
+// If the user is offline try loading from the SnakeViz server
+catch (e) {
+try {
+importScripts(
+event.data['url'] + "/static/vendor/immutable.min.js",
+event.data['url'] + "/static/vendor/lodash.min.js");
+}
+catch (e) {
+throw 'Could not load JS libraries in worker.';
+}
+}
+var depth = 0;
+var max_depth = event.data['depth'];
+var cutoff = event.data['cutoff'];
+var node_name = event.data['name'];
+var parent_name = event.data['parent_name'];
+var node_time = stats[node_name]['stats'][3];
+self.postMessage(JSON.stringify(
+sv_build_hierarchy(
+node_name, depth, max_depth, cutoff, node_time, parent_name
+)));
+};
+</script>
+<!-- Load SnakeViz JS Files -->
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/snakeviz.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/drawsvg.js"></script>
+<!-- Do initial setup stuff -->
+<script>
+// Initialize data
+$(document).ready(_.defer(function () {
+var profile_data = {"~:0(<method 'startswith' of 'str' objects>)": {'children': {}, 'stats': [260388, 260388, 0.06471, 0.06471], 'callers': {'/usr/lib/python3.7/posixpath.py:75(join)': [260388, 260388, 0.06471, 0.06471]}, 'display_name': "~:0(<method 'startswith' of 'str' objects>)"}, '/usr/lib/python3.7/posixpath.py:75(join)': {'children': {"~:0(<method 'startswith' of 'str' objects>)": [260388, 260388, 0.06471, 0.06471], "~:0(<method 'endswith' of 'str' objects>)": [260388, 260388, 0.058448999999999994, 0.058448999999999994], '~:0(<built-in method posix.fspath>)': [260388, 260388, 0.047196999999999996, 0.047196999999999996], '/usr/lib/python3.7/posixpath.py:41(_get_sep)': [260388, 260388, 0.1066, 0.16532]}, 'stats': [260388, 260388, 0.6151829999999999, 0.950859], 'callers': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:24(walk_search)': [230064, 230064, 0.538548, 0.832847], '/usr/lib/python3.7/os.py:278(walk)': [30324, 30324, 0.076635, 0.11801199999999999]}, 'display_name': 'posixpath.py:75(join)'}, "~:0(<method 'endswith' of 'str' objects>)": {'children': {}, 'stats': [260388, 260388, 0.058448999999999994, 0.058448999999999994], 'callers': {'/usr/lib/python3.7/posixpath.py:75(join)': [260388, 260388, 0.058448999999999994, 0.058448999999999994]}, 'display_name': "~:0(<method 'endswith' of 'str' objects>)"}, "~:0(<method 'append' of 'list' objects>)": {'children': {}, 'stats': [312460, 312460, 0.042096999999999996, 0.042096999999999996], 'callers': {'/usr/lib/python3.7/os.py:278(walk)': [312460, 312460, 0.042096999999999996, 0.042096999999999996]}, 'display_name': "~:0(<method 'append' of 'list' objects>)"}, '/usr/lib/python3.7/os.py:278(walk)': {'children': {"~:0(<method 'append' of 'list' objects>)": [312460, 312460, 0.042096999999999996, 0.042096999999999996], "~:0(<method 'is_dir' of 'posix.DirEntry' objects>)": [312460, 312460, 0.067498, 0.067498], '~:0(<built-in method posix.scandir>)': [30261, 30261, 0.16047799999999998, 0.16047799999999998], '~:0(<built-in method posix.fspath>)': [30261, 30261, 0.005954999999999999, 0.005954999999999999], '~:0(<built-in method builtins.next>)': [342721, 342721, 0.63921, 0.63921], '/usr/lib/python3.7/posixpath.py:75(join)': [30324, 30324, 0.076635, 0.11801199999999999], '/usr/lib/python3.7/posixpath.py:168(islink)': [30324, 30324, 0.035405, 0.202558], '/usr/lib/python3.7/os.py:278(walk)': [333996, 30270, 0.545154, 1.780816]}, 'stats': [30262, 364258, 0.555716, 1.791524], 'callers': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:24(walk_search)': [30262, 30262, 0.010562, 1.791524], '/usr/lib/python3.7/os.py:278(walk)': [333996, 30270, 0.545154, 1.780816]}, 'display_name': 'os.py:278(walk)'}, "~:0(<method 'is_dir' of 'posix.DirEntry' objects>)": {'children': {}, 'stats': [312460, 312460, 0.067498, 0.067498], 'callers': {'/usr/lib/python3.7/os.py:278(walk)': [312460, 312460, 0.067498, 0.067498]}, 'display_name': "~:0(<method 'is_dir' of 'posix.DirEntry' objects>)"}, '~:0(<built-in method posix.lstat>)': {'children': {}, 'stats': [30324, 30324, 0.161293, 0.161293], 'callers': {'/usr/lib/python3.7/posixpath.py:168(islink)': [30324, 30324, 0.161293, 0.161293]}, 'display_name': '~:0(<built-in method posix.lstat>)'}, '/usr/lib/python3.7/posixpath.py:168(islink)': {'children': {'~:0(<built-in method posix.lstat>)': [30324, 30324, 0.161293, 0.161293], '~:0(<built-in method _stat.S_ISLNK>)': [30324, 30324, 0.00586, 0.00586]}, 'stats': [30324, 30324, 0.035405, 0.202558], 'callers': {'/usr/lib/python3.7/os.py:278(walk)': [30324, 30324, 0.035405, 0.202558]}, 'display_name': 'posixpath.py:168(islink)'}, '~:0(<built-in method posix.scandir>)': {'children': {}, 'stats': [30261, 30261, 0.16047799999999998, 0.16047799999999998], 'callers': {'/usr/lib/python3.7/os.py:278(walk)': [30261, 30261, 0.16047799999999998, 0.16047799999999998]}, 'display_name': '~:0(<built-in method posix.scandir>)'}, '~:0(<built-in method posix.fspath>)': {'children': {}, 'stats': [290649, 290649, 0.053152, 0.053152], 'callers': {'/usr/lib/python3.7/posixpath.py:75(join)': [260388, 260388, 0.047196999999999996, 0.047196999999999996], '/usr/lib/python3.7/os.py:278(walk)': [30261, 30261, 0.005954999999999999, 0.005954999999999999]}, 'display_name': '~:0(<built-in method posix.fspath>)'}, '~:0(<built-in method _stat.S_ISLNK>)': {'children': {}, 'stats': [30324, 30324, 0.00586, 0.00586], 'callers': {'/usr/lib/python3.7/posixpath.py:168(islink)': [30324, 30324, 0.00586, 0.00586]}, 'display_name': '~:0(<built-in method _stat.S_ISLNK>)'}, '~:0(<built-in method builtins.any>)': {'children': {}, 'stats': [30261, 30261, 0.007572, 0.007572], 'callers': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:24(walk_search)': [30261, 30261, 0.007572, 0.007572]}, 'display_name': '~:0(<built-in method builtins.any>)'}, '/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:24(walk_search)': {'children': {'~:0(<built-in method builtins.any>)': [30261, 30261, 0.007572, 0.007572], '/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:27(<listcomp>)': [30261, 30261, 0.041236999999999996, 0.041236999999999996], '/usr/lib/python3.7/posixpath.py:75(join)': [230064, 230064, 0.538548, 0.832847], '/usr/lib/python3.7/os.py:278(walk)': [30262, 30262, 0.010562, 1.791524]}, 'stats': [230065, 230065, 0.275652, 2.948832], 'callers': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:6(to_list)': [230065, 230065, 0.275652, 2.948832]}, 'display_name': 'test_processes.py:24(walk_search)'}, '~:0(<built-in method builtins.exec>)': {'children': {'<string>:1(<module>)': [1, 1, 0.013963, 3.008314]}, 'stats': [1, 1, 6.4e-05, 3.008378], 'callers': {}, 'display_name': '~:0(<built-in method builtins.exec>)'}, '~:0(<built-in method builtins.isinstance>)': {'children': {}, 'stats': [260388, 260388, 0.058719999999999994, 0.058719999999999994], 'callers': {'/usr/lib/python3.7/posixpath.py:41(_get_sep)': [260388, 260388, 0.058719999999999994, 0.058719999999999994]}, 'display_name': '~:0(<built-in method builtins.isinstance>)'}, '/usr/lib/python3.7/posixpath.py:41(_get_sep)': {'children': {'~:0(<built-in method builtins.isinstance>)': [260388, 260388, 0.058719999999999994, 0.058719999999999994]}, 'stats': [260388, 260388, 0.1066, 0.16532], 'callers': {'/usr/lib/python3.7/posixpath.py:75(join)': [260388, 260388, 0.1066, 0.16532]}, 'display_name': 'posixpath.py:41(_get_sep)'}, '~:0(<built-in method builtins.next>)': {'children': {}, 'stats': [342721, 342721, 0.63921, 0.63921], 'callers': {'/usr/lib/python3.7/os.py:278(walk)': [342721, 342721, 0.63921, 0.63921]}, 'display_name': '~:0(<built-in method builtins.next>)'}, '/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:6(to_list)': {'children': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:24(walk_search)': [230065, 230065, 0.275652, 2.948832]}, 'stats': [1, 1, 0.045519, 2.994351], 'callers': {'<string>:1(<module>)': [1, 1, 0.045519, 2.994351]}, 'display_name': 'test_processes.py:6(to_list)'}, '<string>:1(<module>)': {'children': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:6(to_list)': [1, 1, 0.045519, 2.994351]}, 'stats': [1, 1, 0.013963, 3.008314], 'callers': {'~:0(<built-in method builtins.exec>)': [1, 1, 0.013963, 3.008314]}, 'display_name': '<string>:1(<module>)'}, '/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:27(<listcomp>)': {'children': {}, 'stats': [30261, 30261, 0.041236999999999996, 0.041236999999999996], 'callers': {'/media/james/Development/Programming/Python/file_walker/speed_test/test_processes.py:24(walk_search)': [30261, 30261, 0.041236999999999996, 0.041236999999999996]}, 'display_name': 'test_processes.py:27(<listcomp>)'}};
+sv_json_cache = {};
+sv_worker = sv_make_worker();
+sv_root_func_name = sv_find_root(profile_data);
+sv_root_func_name__cached = sv_root_func_name;
+sv_call_stack = [sv_root_func_name];
+sv_total_time = profile_data[sv_root_func_name]['stats'][3];
+}));
+// Initialize the call stack button
+$(document).ready(_.defer(function () {
+sv_update_call_stack_list();
+sv_call_stack_btn_for_show();
+}));
+// Draw the visualization
+$(document).ready(_.defer(function () {
+sv_draw_vis(sv_root_func_name);
+}));
+</script>
+
+
+</body></html>
