@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8" .="">
+<title>scandir</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/snakeviz.css" rel="stylesheet">
+<!-- DataTables CSS -->
+<link href="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/vendor/jquery.dataTables.min.css" rel="stylesheet">
+</head>
+<body>
+<h1 id="snakeviz-text">
+<a href="https://jiffyclub.github.io/snakeviz/">SnakeViz</a>
+</h1>
+<!-- reset button -->
+<span id="resetbuttons">
+<div class="button-div">
+<button id="resetbutton-root" disabled="True">Reset Root</button>
+</div>
+<div class="button-div">
+<button id="resetbutton-zoom" disabled="True">Reset Zoom</button>
+</div>
+</span>
+<!-- style select -->
+<label id="sv-style-label">Style:
+<select name="sv-style" id="sv-style-select">
+<option value="icicle" selected="selected">Icicle</option>
+<option value="sunburst">Sunburst</option>
+</select>
+</label>
+<!-- depth select -->
+<label id="sv-depth-label">Depth:
+<select name="sv-depth" id="sv-depth-select">
+
+<option value="3">3</option>
+
+<option value="5">5</option>
+
+<option value="10" selected="selected">10</option>
+
+<option value="15">15</option>
+
+<option value="20">20</option>
+
+</select>
+</label>
+<!-- cutoff select -->
+<label id="sv-cutoff-label">Cutoff:
+<select name="sv-cutoff" id="sv-cutoff-select">
+<option value="0.001" selected="selected">1 ⁄ 1000</option>
+<option value="0.01">1 ⁄ 100</option>
+<option value="0">None</option>
+</select>
+</label>
+<!-- information div -->
+<div id="sv-info-div" class="icicle" style="height: 579.6px; width: 200px; display: none;"><div class="sv-info-label">Name:</div>
+<div class="sv-info-item">&lt;built-in method nt.scandir&gt;</div>
+<div class="sv-info-label">Cumulative Time:</div>
+<div class="sv-info-item">3.82 s (54.67 %)</div>
+<div class="sv-info-label">File:</div>
+<div class="sv-info-item">~</div>
+<div class="sv-info-label">Line:</div>
+<div class="sv-info-item">0</div>
+<div class="sv-info-label">Directory:</div>
+<div class="sv-info-item"></div></div>
+<!-- call stack -->
+<div id="sv-call-stack">
+<div id="working-spinner" class="spinner" style="display: none;">
+<div class="bounce1"></div>
+<div class="bounce2"></div>
+<div class="bounce3"></div>
+</div>
+<div style="display: inline-block;">
+<button id="sv-call-stack-btn">Call Stack</button>
+</div>
+<div id="sv-call-stack-list"><div><span>0.&nbsp;</span><span>~:0(&lt;built-in method builtins.exec&gt;)</span></div></div>
+</div>
+<!-- Error message -->
+<div id="sv-error-div" class="sv-error-msg">
+<p>
+An error occurred processing your profile.
+You can try a lower depth, a larger cutoff,
+or try profiling a smaller portion of your code.
+If you continue to have problems you can
+<a href="https://github.com/jiffyclub/snakeviz/issues">
+contact us on GitHub</a>.
+</p>
+<div id="sv-error-close-div" class="sv-error-close">Close</div>
+</div>
+<!-- vis -->
+<div style="text-align: center;">
+<div id="chart" style="margin-left: auto; margin-right: auto;"><svg width="1440" height="772.8000000000001"><g id="container" transform="translate(90,60)"><rect id="path-0" x="0" y="0" width="1350" height="71.28000000000002" fill-rule="evenodd" fill="#3182bd" stroke="#FFF"></rect><rect id="path-1" x="0" y="71.28000000000002" width="1349.9746141156097" height="71.28000000000002" fill-rule="evenodd" fill="#6baed6" stroke="#FFF"></rect><rect id="path-2" x="0" y="142.56000000000003" width="1349.9681083794583" height="71.28000000000002" fill-rule="evenodd" fill="#9ecae1" stroke="#FFF"></rect><rect id="path-3" x="0" y="213.84000000000006" width="1349.9145181018407" height="71.28000000000002" fill-rule="evenodd" fill="#c6dbef" stroke="#FFF"></rect><rect id="path-4" x="1346.2415377704135" y="285.12000000000006" width="3.672980331427181" height="71.28000000000002" fill-rule="evenodd" fill="#e6550d" stroke="#FFF"></rect><rect id="path-5" x="1346.2415377704135" y="356.40000000000003" width="2.158668891634627" height="71.28000000000002" fill-rule="evenodd" fill="#fd8d3c" stroke="#FFF"></rect><rect id="path-6" x="1346.2415377704135" y="427.6800000000001" width="1.6362795139952693" height="71.28000000000002" fill-rule="evenodd" fill="#fd8d3c" stroke="#FFF"></rect><rect id="path-7" x="1348.400206662048" y="356.40000000000003" width="1.3493900631047107" height="71.28000000000002" fill-rule="evenodd" fill="#e6550d" stroke="#FFF"></rect><rect id="path-8" x="1333.7725898085093" y="285.12000000000006" width="12.468947961904227" height="71.28000000000002" fill-rule="evenodd" fill="#fdae6b" stroke="#FFF"></rect><rect id="path-9" x="1319.1573473670571" y="285.12000000000006" width="14.615242441452127" height="71.28000000000002" fill-rule="evenodd" fill="#fdd0a2" stroke="#FFF"></rect><rect id="path-10" x="0" y="285.12000000000006" width="738.0914419504081" height="71.28000000000002" fill-rule="evenodd" fill="#31a354" stroke="#FFF" style="fill: rgb(49, 163, 84);"></rect><rect id="path-11" x="738.0914419504081" y="285.12000000000006" width="581.0659054166491" height="71.28000000000002" fill-rule="evenodd" fill="#c6dbef" stroke="#FFF"></rect><text x="675" y="35.64000000000001" width="1350" height="71.28000000000002" font-family="sans-serif" font-size="15px" fill="black" text-anchor="middle" pointer-events="none"><tspan text-anchor="middle" x="675">~:0(&lt;built-in method builtins.exec&gt;)</tspan><tspan text-anchor="middle" x="675" dy="1.2em">6.99 s</tspan></text><text x="674.9873070578049" y="106.92000000000003" width="1349.9746141156097" height="71.28000000000002" font-family="sans-serif" font-size="15px" fill="black" text-anchor="middle" pointer-events="none"><tspan text-anchor="middle" x="674.9873070578049">&lt;string&gt;:1(&lt;module&gt;)</tspan><tspan text-anchor="middle" x="674.9873070578049" dy="1.2em">6.99 s</tspan></text><text x="674.9840541897291" y="178.20000000000002" width="1349.9681083794583" height="71.28000000000002" font-family="sans-serif" font-size="15px" fill="black" text-anchor="middle" pointer-events="none"><tspan text-anchor="middle" x="674.9840541897291">C:\Users\black\OneDrive\Documents\Development\python_file_hunter\speed_test\test_processes.py:12(to_list)</tspan><tspan text-anchor="middle" x="674.9840541897291" dy="1.2em">6.99 s</tspan></text><text x="674.9572590509204" y="249.48000000000005" width="1349.9145181018407" height="71.28000000000002" font-family="sans-serif" font-size="15px" fill="black" text-anchor="middle" pointer-events="none"><tspan text-anchor="middle" x="674.9572590509204">C:\Users\black\OneDrive\Documents\Development\python_file_hunter\speed_test\test_processes.py:23(scandir_search)</tspan><tspan text-anchor="middle" x="674.9572590509204" dy="1.2em">6.99 s</tspan></text><text x="369.04572097520406" y="320.76000000000005" width="738.0914419504081" height="71.28000000000002" font-family="sans-serif" font-size="15px" fill="black" text-anchor="middle" pointer-events="none"><tspan text-anchor="middle" x="369.04572097520406">~:0(&lt;built-in method nt.scandir&gt;)</tspan><tspan text-anchor="middle" x="369.04572097520406" dy="1.2em">3.82 s</tspan></text></g></svg></div>
+</div>
+<br>
+<!-- stats table -->
+<div id="table_div">
+<div id="pstats-table_wrapper" class="dataTables_wrapper no-footer"><div id="pstats-table_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="pstats-table"></label></div><table class="display dataTable no-footer" id="pstats-table" role="grid" aria-describedby="pstats-table_info" style="width: 1850px;" cellspacing="0" cellpadding="0" border="0">
+<thead><tr role="row"><th class="sorting" tabindex="0" aria-controls="pstats-table" rowspan="1" colspan="1" style="width: 108px;" aria-label="ncalls: activate to sort column ascending">ncalls</th><th class="sorting_desc" tabindex="0" aria-controls="pstats-table" rowspan="1" colspan="1" style="width: 96px;" aria-sort="descending" aria-label="tottime: activate to sort column ascending">tottime</th><th class="sorting" tabindex="0" aria-controls="pstats-table" rowspan="1" colspan="1" style="width: 90px;" aria-label="percall: activate to sort column ascending">percall</th><th class="sorting" tabindex="0" aria-controls="pstats-table" rowspan="1" colspan="1" style="width: 107px;" aria-label="cumtime: activate to sort column ascending">cumtime</th><th class="sorting" tabindex="0" aria-controls="pstats-table" rowspan="1" colspan="1" style="width: 90px;" aria-label="percall: activate to sort column ascending">percall</th><th class="sorting" tabindex="0" aria-controls="pstats-table" rowspan="1" colspan="1" style="width: 1143px;" aria-label="filename:lineno(function): activate to sort column ascending">filename:lineno(function)</th></tr></thead><tbody><tr role="row" class="odd"><td>43591</td><td class="sorting_1">3.823</td><td>8.771e-05</td><td>3.823</td><td>8.771e-05</td><td>~:0(&lt;built-in method nt.scandir&gt;)</td></tr><tr role="row" class="even"><td>57124/2032</td><td class="sorting_1">2.89</td><td>0.001422</td><td>6.993</td><td>0.003441</td><td>C:\Users\black\OneDrive\Documents\Development\python_file_hunter\speed_test\test_processes.py:23(scandir_search)</td></tr><tr role="row" class="odd"><td>43591/1</td><td class="sorting_1">0.1206</td><td>0.1206</td><td>6.993</td><td>6.993</td><td>C:\Users\black\OneDrive\Documents\Development\python_file_hunter\speed_test\test_processes.py:12(to_list)</td></tr><tr role="row" class="even"><td>649743</td><td class="sorting_1">0.07571</td><td>1.165e-07</td><td>0.07571</td><td>1.165e-07</td><td>~:0(&lt;method 'is_file' of 'nt.DirEntry' objects&gt;)</td></tr><tr role="row" class="odd"><td>647712</td><td class="sorting_1">0.06459</td><td>9.972e-08</td><td>0.06459</td><td>9.972e-08</td><td>~:0(&lt;method 'is_dir' of 'nt.DirEntry' objects&gt;)</td></tr><tr role="row" class="even"><td>4062</td><td class="sorting_1">0.008476</td><td>2.087e-06</td><td>0.01118</td><td>2.753e-06</td><td>C:\Program Files\Python38\lib\ntpath.py:124(splitdrive)</td></tr><tr role="row" class="odd"><td>2031</td><td class="sorting_1">0.00699</td><td>3.442e-06</td><td>0.01903</td><td>9.368e-06</td><td>C:\Program Files\Python38\lib\ntpath.py:77(join)</td></tr><tr role="row" class="even"><td>6093</td><td class="sorting_1">0.001068</td><td>1.753e-07</td><td>0.001068</td><td>1.753e-07</td><td>~:0(&lt;built-in method builtins.isinstance&gt;)</td></tr><tr role="row" class="odd"><td>4062</td><td class="sorting_1">0.0009393</td><td>2.312e-07</td><td>0.0009393</td><td>2.312e-07</td><td>~:0(&lt;method 'replace' of 'str' objects&gt;)</td></tr><tr role="row" class="even"><td>6093</td><td class="sorting_1">0.000826</td><td>1.356e-07</td><td>0.000826</td><td>1.356e-07</td><td>~:0(&lt;built-in method nt.fspath&gt;)</td></tr><tr role="row" class="odd"><td>4062</td><td class="sorting_1">0.0007267</td><td>1.789e-07</td><td>0.0007267</td><td>1.789e-07</td><td>~:0(&lt;built-in method builtins.len&gt;)</td></tr><tr role="row" class="even"><td>1</td><td class="sorting_1">0.0001315</td><td>0.0001315</td><td>6.993</td><td>6.993</td><td>~:0(&lt;built-in method builtins.exec&gt;)</td></tr><tr role="row" class="odd"><td>1</td><td class="sorting_1">3.37e-05</td><td>3.37e-05</td><td>6.993</td><td>6.993</td><td>&lt;string&gt;:1(&lt;module&gt;)</td></tr><tr role="row" class="even"><td>1</td><td class="sorting_1">6e-07</td><td>6e-07</td><td>6e-07</td><td>6e-07</td><td>~:0(&lt;method 'disable' of '_lsprof.Profiler' objects&gt;)</td></tr></tbody></table><div class="dataTables_info" id="pstats-table_info" role="status" aria-live="polite">Showing 1 to 14 of 14 entries</div></div>
+</div>
+<!-- footer -->
+<footer class="sv-footer">
+<a class="footer-link" href="https://jiffyclub.github.io/snakeviz/">SnakeViz Docs</a>
+</footer>
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- Vendor JS -->
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/vendor/jquery-3.2.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/vendor/d3.v3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/vendor/jquery.dataTables.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/vendor/lodash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/vendor/immutable.min.js"></script>
+<!-- SnakeViz JS -->
+<script>
+// Make the stats table
+var table_data = [[['2031', 2031], '0.00699', '3.442e-06', '0.01903', '9.368e-06', 'C:\\Program Files\\Python38\\lib\\ntpath.py:77(join)', 'C:\\Program Files\\Python38\\lib\\ntpath.py:77(join)'], [['4062', 4062], '0.008476', '2.087e-06', '0.01118', '2.753e-06', 'C:\\Program Files\\Python38\\lib\\ntpath.py:124(splitdrive)', 'C:\\Program Files\\Python38\\lib\\ntpath.py:124(splitdrive)'], [['43591/1', 43591], '0.1206', '0.1206', '6.993', '6.993', 'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:12(to_list)', 'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:12(to_list)'], [['57124/2032', 57124], '2.89', '0.001422', '6.993', '0.003441', 'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:23(scandir_search)', 'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:23(scandir_search)'], [['1', 1], '3.37e-05', '3.37e-05', '6.993', '6.993', '&lt;string&gt;:1(&lt;module&gt;)', '<string>:1(<module>)'], [['647712', 647712], '0.06459', '9.972e-08', '0.06459', '9.972e-08', '~:0(&lt;method &#39;is_dir&#39; of &#39;nt.DirEntry&#39; objects&gt;)', "~:0(<method 'is_dir' of 'nt.DirEntry' objects>)"], [['649743', 649743], '0.07571', '1.165e-07', '0.07571', '1.165e-07', '~:0(&lt;method &#39;is_file&#39; of &#39;nt.DirEntry&#39; objects&gt;)', "~:0(<method 'is_file' of 'nt.DirEntry' objects>)"], [['43591', 43591], '3.823', '8.771e-05', '3.823', '8.771e-05', '~:0(&lt;built-in method nt.scandir&gt;)', '~:0(<built-in method nt.scandir>)'], [['6093', 6093], '0.000826', '1.356e-07', '0.000826', '1.356e-07', '~:0(&lt;built-in method nt.fspath&gt;)', '~:0(<built-in method nt.fspath>)'], [['4062', 4062], '0.0009393', '2.312e-07', '0.0009393', '2.312e-07', '~:0(&lt;method &#39;replace&#39; of &#39;str&#39; objects&gt;)', "~:0(<method 'replace' of 'str' objects>)"], [['1', 1], '0.0001315', '0.0001315', '6.993', '6.993', '~:0(&lt;built-in method builtins.exec&gt;)', '~:0(<built-in method builtins.exec>)'], [['6093', 6093], '0.001068', '1.753e-07', '0.001068', '1.753e-07', '~:0(&lt;built-in method builtins.isinstance&gt;)', '~:0(<built-in method builtins.isinstance>)'], [['4062', 4062], '0.0007267', '1.789e-07', '0.0007267', '1.789e-07', '~:0(&lt;built-in method builtins.len&gt;)', '~:0(<built-in method builtins.len>)'], [['1', 1], '6e-07', '6e-07', '6e-07', '6e-07', '~:0(&lt;method &#39;disable&#39; of &#39;_lsprof.Profiler&#39; objects&gt;)', "~:0(<method 'disable' of '_lsprof.Profiler' objects>)"]];
+$(document).ready(function() {
+var table = $('#pstats-table').dataTable({
+'data': table_data,
+'columns': [
+{'title': 'ncalls', 'type': 'num', 'searchable': 'false',
+'data': {
+'_': function (row) {return row[0][0];},
+'sort': function (row) {return row[0][1]}
+}},
+{'title': 'tottime', 'type': 'num', 'searchable': 'false'},
+{'title': 'percall', 'type': 'num', 'searchable': 'false'},
+{'title': 'cumtime', 'type': 'num', 'searchable': 'false'},
+{'title': 'percall', 'type': 'num', 'searchable': 'false'},
+{'title': 'filename:lineno(function)'}
+],
+'order': [1, 'desc'],
+'paging': false
+}).api();
+$('#pstats-table tbody').on('click', 'tr', function() {
+var name = table.row(this).data()[6];
+sv_root_func_name = name;
+sv_draw_vis(name);
+sv_call_stack = [name];
+sv_update_call_stack_list();
+$('#resetbutton-zoom').prop('disabled', true);
+$('#resetbutton-root').prop('disabled', false);
+}).on('mouseenter', 'tr', function () {
+$(this).children('td').addClass('data-table-hover');
+}).on('mouseleave', 'tr', function () {
+$(this).children('td').removeClass('data-table-hover');
+});
+});
+</script>
+<!-- Web worker code for generating D3 JSON in a separate thread -->
+<script id="hierarchy-worker" type="javascript/worker">
+// This will all go into a web worker that will be used to generate
+// the visualization JSON while leaving the rest of the app responsive.
+//
+// We put this here instead of in a separate JS file so that the worker
+// can be stopped and restarted without loading the code from the server,
+// and so that the stats data can be embedded in the worker.
+var stats = {'C:\\Program Files\\Python38\\lib\\ntpath.py:77(join)': {'children': {'C:\\Program Files\\Python38\\lib\\ntpath.py:124(splitdrive)': [4062, 4062, 0.008476000000000001, 0.011182000000000001], '~:0(<built-in method nt.fspath>)': [2031, 2031, 0.00031130000000000003, 0.00031130000000000003], '~:0(<built-in method builtins.isinstance>)': [2031, 2031, 0.0005430000000000001, 0.0005430000000000001]}, 'stats': [2031, 2031, 0.0069899, 0.0190262], 'callers': {'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:23(scandir_search)': [2031, 2031, 0.0069899, 0.0190262]}, 'display_name': 'C:\\Program Files\\Python38\\lib\\ntpath.py:77(join)'}, 'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:23(scandir_search)': {'children': {'C:\\Program Files\\Python38\\lib\\ntpath.py:77(join)': [2031, 2031, 0.0069899, 0.0190262], 'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:12(to_list)': [43590, 2, 0.120287, 6.9919985], "~:0(<method 'is_dir' of 'nt.DirEntry' objects>)": [647712, 647712, 0.0645897, 0.0645897], "~:0(<method 'is_file' of 'nt.DirEntry' objects>)": [649743, 649743, 0.0757076, 0.0757076], '~:0(<built-in method nt.scandir>)': [43591, 43591, 3.8233462, 3.8233462]}, 'stats': [2032, 57124, 2.88966, 6.9926167], 'callers': {'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:12(to_list)': [57124, 2032, 2.88966, 6.9926167]}, 'display_name': 'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:23(scandir_search)'}, 'C:\\Program Files\\Python38\\lib\\ntpath.py:124(splitdrive)': {'children': {'~:0(<built-in method nt.fspath>)': [4062, 4062, 0.0005147, 0.0005147], "~:0(<method 'replace' of 'str' objects>)": [4062, 4062, 0.0009393, 0.0009393], '~:0(<built-in method builtins.isinstance>)': [4062, 4062, 0.0005253, 0.0005253], '~:0(<built-in method builtins.len>)': [4062, 4062, 0.0007267, 0.0007267]}, 'stats': [4062, 4062, 0.008476000000000001, 0.011182000000000001], 'callers': {'C:\\Program Files\\Python38\\lib\\ntpath.py:77(join)': [4062, 4062, 0.008476000000000001, 0.011182000000000001]}, 'display_name': 'C:\\Program Files\\Python38\\lib\\ntpath.py:124(splitdrive)'}, 'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:12(to_list)': {'children': {'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:23(scandir_search)': [57124, 2032, 2.88966, 6.9926167]}, 'stats': [1, 43591, 0.12056460000000001, 6.992894300000001], 'callers': {'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:23(scandir_search)': [43590, 2, 0.120287, 6.9919985], '<string>:1(<module>)': [1, 1, 0.0002776, 6.992894300000001]}, 'display_name': 'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:12(to_list)'}, '<string>:1(<module>)': {'children': {'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:12(to_list)': [1, 1, 0.0002776, 6.992894300000001]}, 'stats': [1, 1, 3.37e-05, 6.992928], 'callers': {'~:0(<built-in method builtins.exec>)': [1, 1, 3.37e-05, 6.992928]}, 'display_name': '<string>:1(<module>)'}, '~:0(<built-in method builtins.exec>)': {'children': {'<string>:1(<module>)': [1, 1, 3.37e-05, 6.992928]}, 'stats': [1, 1, 0.0001315, 6.9930595], 'callers': {}, 'display_name': '~:0(<built-in method builtins.exec>)'}, "~:0(<method 'is_dir' of 'nt.DirEntry' objects>)": {'children': {}, 'stats': [647712, 647712, 0.0645897, 0.0645897], 'callers': {'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:23(scandir_search)': [647712, 647712, 0.0645897, 0.0645897]}, 'display_name': "~:0(<method 'is_dir' of 'nt.DirEntry' objects>)"}, "~:0(<method 'is_file' of 'nt.DirEntry' objects>)": {'children': {}, 'stats': [649743, 649743, 0.0757076, 0.0757076], 'callers': {'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:23(scandir_search)': [649743, 649743, 0.0757076, 0.0757076]}, 'display_name': "~:0(<method 'is_file' of 'nt.DirEntry' objects>)"}, '~:0(<built-in method nt.scandir>)': {'children': {}, 'stats': [43591, 43591, 3.8233462, 3.8233462], 'callers': {'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:23(scandir_search)': [43591, 43591, 3.8233462, 3.8233462]}, 'display_name': '~:0(<built-in method nt.scandir>)'}, '~:0(<built-in method nt.fspath>)': {'children': {}, 'stats': [6093, 6093, 0.000826, 0.000826], 'callers': {'C:\\Program Files\\Python38\\lib\\ntpath.py:77(join)': [2031, 2031, 0.00031130000000000003, 0.00031130000000000003], 'C:\\Program Files\\Python38\\lib\\ntpath.py:124(splitdrive)': [4062, 4062, 0.0005147, 0.0005147]}, 'display_name': '~:0(<built-in method nt.fspath>)'}, "~:0(<method 'replace' of 'str' objects>)": {'children': {}, 'stats': [4062, 4062, 0.0009393, 0.0009393], 'callers': {'C:\\Program Files\\Python38\\lib\\ntpath.py:124(splitdrive)': [4062, 4062, 0.0009393, 0.0009393]}, 'display_name': "~:0(<method 'replace' of 'str' objects>)"}, '~:0(<built-in method builtins.isinstance>)': {'children': {}, 'stats': [6093, 6093, 0.0010683000000000001, 0.0010683000000000001], 'callers': {'C:\\Program Files\\Python38\\lib\\ntpath.py:77(join)': [2031, 2031, 0.0005430000000000001, 0.0005430000000000001], 'C:\\Program Files\\Python38\\lib\\ntpath.py:124(splitdrive)': [4062, 4062, 0.0005253, 0.0005253]}, 'display_name': '~:0(<built-in method builtins.isinstance>)'}, '~:0(<built-in method builtins.len>)': {'children': {}, 'stats': [4062, 4062, 0.0007267, 0.0007267], 'callers': {'C:\\Program Files\\Python38\\lib\\ntpath.py:124(splitdrive)': [4062, 4062, 0.0007267, 0.0007267]}, 'display_name': '~:0(<built-in method builtins.len>)'}};
+function sv_build_hierarchy(
+node_name, depth, max_depth, cutoff, node_time, parent_name, call_stack) {
+// track visited functions so we can avoid infinitely displaying
+// instances of recursion
+if (_.isUndefined(call_stack)) {
+var call_stack = Immutable.Set([node_name])
+} else {
+var call_stack = call_stack.add(node_name);
+};
+var data = {
+name: node_name,
+display_name: stats[node_name]['display_name'],
+time: node_time,
+cumulative: stats[node_name]['stats'][3],
+parent_name: parent_name
+};
+if (depth < max_depth && !_.isEmpty(stats[node_name]['children'])) {
+child_names = {};
+for (var child_name in stats[node_name]['children']) {
+// Cut off children that have already been visited (recursion)
+if (!call_stack.contains(child_name)) {
+child_names[child_name] = stats[node_name]['children'][child_name];
+}
+}
+// Normalize the child times.
+// Unfortunately, stats[child_name]['callers'][node_name][3] doesn't
+// give us the time that child spend under node in this instance, but
+// in all instances across the call tree. Yikes!
+// This may lead to unexpected behavior, e.g., the child times add up
+// to more than the node time. A normalization is necessary.
+var child_times = {};
+var total_children_time = 0.0;
+for (var child_name in child_names) {
+child_times[child_name] = stats[child_name]['callers'][node_name][3];
+total_children_time += child_times[child_name];
+}
+if (total_children_time > node_time) {
+for (var child_name in child_names) {
+child_times[child_name] *= (node_time / total_children_time);
+}
+}
+data['children'] = [];
+// recurse
+for (var child_name in child_names) {
+if (child_times[child_name]/node_time > cutoff) {
+data['children'].push(
+sv_build_hierarchy(
+child_name, depth+1, max_depth, cutoff,
+child_times[child_name], node_name, call_stack
+));
+}
+}
+// D3, the plotting framework, only accounts for times in the leaf
+// nodes. Hence, if the node_time exceeds the total time in its
+// children, we need to add another child node to account for the the
+// time spent in node itself.
+if (total_children_time < node_time) {
+data['children'].push({
+name: node_name,
+display_name: data['display_name'],
+parent_name: data['parent_name'],
+cumulative: stats[node_name]['stats'][3],
+time: node_time - total_children_time
+});
+}
+}
+return data;
+}
+self.onmessage = function (event) {
+// Try loading JS from CDN in case snakeviz server is off
+try {
+importScripts(
+"https://cdnjs.cloudflare.com/ajax/libs/immutable/3.8.1/immutable.min.js",
+"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js");
+}
+// If the user is offline try loading from the SnakeViz server
+catch (e) {
+try {
+importScripts(
+event.data['url'] + "/static/vendor/immutable.min.js",
+event.data['url'] + "/static/vendor/lodash.min.js");
+}
+catch (e) {
+throw 'Could not load JS libraries in worker.';
+}
+}
+var depth = 0;
+var max_depth = event.data['depth'];
+var cutoff = event.data['cutoff'];
+var node_name = event.data['name'];
+var parent_name = event.data['parent_name'];
+var node_time = stats[node_name]['stats'][3];
+self.postMessage(JSON.stringify(
+sv_build_hierarchy(
+node_name, depth, max_depth, cutoff, node_time, parent_name
+)));
+};
+</script>
+<!-- Load SnakeViz JS Files -->
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/snakeviz.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/jiffyclub/snakeviz/snakeviz/static/drawsvg.js"></script>
+<!-- Do initial setup stuff -->
+<script>
+// Initialize data
+$(document).ready(_.defer(function () {
+var profile_data = {'C:\\Program Files\\Python38\\lib\\ntpath.py:77(join)': {'children': {'C:\\Program Files\\Python38\\lib\\ntpath.py:124(splitdrive)': [4062, 4062, 0.008476000000000001, 0.011182000000000001], '~:0(<built-in method nt.fspath>)': [2031, 2031, 0.00031130000000000003, 0.00031130000000000003], '~:0(<built-in method builtins.isinstance>)': [2031, 2031, 0.0005430000000000001, 0.0005430000000000001]}, 'stats': [2031, 2031, 0.0069899, 0.0190262], 'callers': {'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:23(scandir_search)': [2031, 2031, 0.0069899, 0.0190262]}, 'display_name': 'C:\\Program Files\\Python38\\lib\\ntpath.py:77(join)'}, 'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:23(scandir_search)': {'children': {'C:\\Program Files\\Python38\\lib\\ntpath.py:77(join)': [2031, 2031, 0.0069899, 0.0190262], 'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:12(to_list)': [43590, 2, 0.120287, 6.9919985], "~:0(<method 'is_dir' of 'nt.DirEntry' objects>)": [647712, 647712, 0.0645897, 0.0645897], "~:0(<method 'is_file' of 'nt.DirEntry' objects>)": [649743, 649743, 0.0757076, 0.0757076], '~:0(<built-in method nt.scandir>)': [43591, 43591, 3.8233462, 3.8233462]}, 'stats': [2032, 57124, 2.88966, 6.9926167], 'callers': {'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:12(to_list)': [57124, 2032, 2.88966, 6.9926167]}, 'display_name': 'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:23(scandir_search)'}, 'C:\\Program Files\\Python38\\lib\\ntpath.py:124(splitdrive)': {'children': {'~:0(<built-in method nt.fspath>)': [4062, 4062, 0.0005147, 0.0005147], "~:0(<method 'replace' of 'str' objects>)": [4062, 4062, 0.0009393, 0.0009393], '~:0(<built-in method builtins.isinstance>)': [4062, 4062, 0.0005253, 0.0005253], '~:0(<built-in method builtins.len>)': [4062, 4062, 0.0007267, 0.0007267]}, 'stats': [4062, 4062, 0.008476000000000001, 0.011182000000000001], 'callers': {'C:\\Program Files\\Python38\\lib\\ntpath.py:77(join)': [4062, 4062, 0.008476000000000001, 0.011182000000000001]}, 'display_name': 'C:\\Program Files\\Python38\\lib\\ntpath.py:124(splitdrive)'}, 'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:12(to_list)': {'children': {'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:23(scandir_search)': [57124, 2032, 2.88966, 6.9926167]}, 'stats': [1, 43591, 0.12056460000000001, 6.992894300000001], 'callers': {'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:23(scandir_search)': [43590, 2, 0.120287, 6.9919985], '<string>:1(<module>)': [1, 1, 0.0002776, 6.992894300000001]}, 'display_name': 'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:12(to_list)'}, '<string>:1(<module>)': {'children': {'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:12(to_list)': [1, 1, 0.0002776, 6.992894300000001]}, 'stats': [1, 1, 3.37e-05, 6.992928], 'callers': {'~:0(<built-in method builtins.exec>)': [1, 1, 3.37e-05, 6.992928]}, 'display_name': '<string>:1(<module>)'}, '~:0(<built-in method builtins.exec>)': {'children': {'<string>:1(<module>)': [1, 1, 3.37e-05, 6.992928]}, 'stats': [1, 1, 0.0001315, 6.9930595], 'callers': {}, 'display_name': '~:0(<built-in method builtins.exec>)'}, "~:0(<method 'is_dir' of 'nt.DirEntry' objects>)": {'children': {}, 'stats': [647712, 647712, 0.0645897, 0.0645897], 'callers': {'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:23(scandir_search)': [647712, 647712, 0.0645897, 0.0645897]}, 'display_name': "~:0(<method 'is_dir' of 'nt.DirEntry' objects>)"}, "~:0(<method 'is_file' of 'nt.DirEntry' objects>)": {'children': {}, 'stats': [649743, 649743, 0.0757076, 0.0757076], 'callers': {'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:23(scandir_search)': [649743, 649743, 0.0757076, 0.0757076]}, 'display_name': "~:0(<method 'is_file' of 'nt.DirEntry' objects>)"}, '~:0(<built-in method nt.scandir>)': {'children': {}, 'stats': [43591, 43591, 3.8233462, 3.8233462], 'callers': {'C:\\Users\\black\\OneDrive\\Documents\\Development\\python_file_hunter\\speed_test\\test_processes.py:23(scandir_search)': [43591, 43591, 3.8233462, 3.8233462]}, 'display_name': '~:0(<built-in method nt.scandir>)'}, '~:0(<built-in method nt.fspath>)': {'children': {}, 'stats': [6093, 6093, 0.000826, 0.000826], 'callers': {'C:\\Program Files\\Python38\\lib\\ntpath.py:77(join)': [2031, 2031, 0.00031130000000000003, 0.00031130000000000003], 'C:\\Program Files\\Python38\\lib\\ntpath.py:124(splitdrive)': [4062, 4062, 0.0005147, 0.0005147]}, 'display_name': '~:0(<built-in method nt.fspath>)'}, "~:0(<method 'replace' of 'str' objects>)": {'children': {}, 'stats': [4062, 4062, 0.0009393, 0.0009393], 'callers': {'C:\\Program Files\\Python38\\lib\\ntpath.py:124(splitdrive)': [4062, 4062, 0.0009393, 0.0009393]}, 'display_name': "~:0(<method 'replace' of 'str' objects>)"}, '~:0(<built-in method builtins.isinstance>)': {'children': {}, 'stats': [6093, 6093, 0.0010683000000000001, 0.0010683000000000001], 'callers': {'C:\\Program Files\\Python38\\lib\\ntpath.py:77(join)': [2031, 2031, 0.0005430000000000001, 0.0005430000000000001], 'C:\\Program Files\\Python38\\lib\\ntpath.py:124(splitdrive)': [4062, 4062, 0.0005253, 0.0005253]}, 'display_name': '~:0(<built-in method builtins.isinstance>)'}, '~:0(<built-in method builtins.len>)': {'children': {}, 'stats': [4062, 4062, 0.0007267, 0.0007267], 'callers': {'C:\\Program Files\\Python38\\lib\\ntpath.py:124(splitdrive)': [4062, 4062, 0.0007267, 0.0007267]}, 'display_name': '~:0(<built-in method builtins.len>)'}};
+sv_json_cache = {};
+sv_worker = sv_make_worker();
+sv_root_func_name = sv_find_root(profile_data);
+sv_root_func_name__cached = sv_root_func_name;
+sv_call_stack = [sv_root_func_name];
+sv_total_time = profile_data[sv_root_func_name]['stats'][3];
+}));
+// Initialize the call stack button
+$(document).ready(_.defer(function () {
+sv_update_call_stack_list();
+sv_call_stack_btn_for_show();
+}));
+// Draw the visualization
+$(document).ready(_.defer(function () {
+sv_draw_vis(sv_root_func_name);
+}));
+</script>
+
+
+</body></html>
