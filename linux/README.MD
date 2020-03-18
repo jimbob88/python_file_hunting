@@ -24,6 +24,8 @@ I chose to revist my project for two reasons:
  * `mlocate_custom_search` is the same as `find_custom_search` but with the `mlocate` command over the `find` command.
  * `mlocate_custom_mem_search` is the same as `find_custom_mem_search` but with the `mlocate` command over the `find` command.
  * `mlocate_custom_mem_qread_search` is the same as `find_custom_mem_qread_search` but with the `mlocate` command over the `find` command.
+ * `scandir_rs_search` uses the `scandir_rs.walk.Walk` function to loop through all of the folders and files like `os.walk`
+ 
  
  These are then ran through [profiler.py](https://github.com/jimbob88/python_file_hunting/blob/master/linux/profiling/profiler.py) and the stats are spat out into the command line, the profile files are also saved for later.
  
@@ -39,6 +41,7 @@ So then, what did I find after profiling everything?
    * [mlocate_custom_search](https://htmlpreview.github.io/?https://github.com/jimbob88/python_file_hunting/blob/master/linux/profiling/html/mlocate_custom.html)
    * [mlocate_custom_mem_search](https://htmlpreview.github.io/?https://github.com/jimbob88/python_file_hunting/blob/master/linux/profiling/html/mlocate_custom_mem.html)
    * [mlocate_custom_mem_qread_search](https://htmlpreview.github.io/?https://github.com/jimbob88/python_file_hunting/blob/master/linux/profiling/html/mlocate_custom_mem_qread.html)
+   * [scandir_rs_search](https://htmlpreview.github.io/?https://github.com/jimbob88/python_file_hunting/blob/master/linux/profiling/html/scandir_rs.html)
    
    The results in text form:
    * ```
@@ -77,14 +80,19 @@ So then, what did I find after profiling everything?
       Sun Mar 15 09:21:04 2020    mlocate_custom_mem_qread.prof
          59325 function calls in 0.962 seconds
      ```
+   * ```
+      Wed Mar 18 17:10:05 2020    scandir_rs.prof
+         1679050 function calls in 4.734 seconds
+     ```
+     
 
   What does that actually look like?
-  Using [plot.ly](https://www.plot.ly/) I created [this](https://plot.ly/~jimbob88/3/) fancy looking graph:
-    ![Fancy Graph](https://user-images.githubusercontent.com/9913366/76705317-11272000-66d7-11ea-8b99-de1a4aea1acc.png)
+  Using [plot.ly](https://www.plot.ly/) I created [this](https://plot.ly/~jimbob88/10/) fancy looking graph:
+    ![Fancy Graph](https://user-images.githubusercontent.com/9913366/76989289-04f0cc00-693e-11ea-8b1c-ef7b7a729767.png)
 
   But wait, what is that I see, is that `mlocate` outperforming `find`, what is this madness! Well here comes the "bane of mlocate" as mentioned previously, `mlocate` forces one to do an `updatedb` everytime you want to recache all of the files on your system. So how long does this take on my system? A full run of `updatedb` (the command for this looks like this: `time sudo updatedb --output test.db`) takes `real 0m12.446s`; however, this isn't a very fair test as one would not be expected to rebuild the whole database every time, instead if you were to do a partial update that would cost you `real	0m2.259s`.
   Now if we refit the graph with the mlocate timings + the `partial updatedb`, I know this isn't very accurate because it would take slightly longer for the delay of running the command through `subprocess`, [the graph](https://plot.ly/~jimbob88/5/) then fits like so:
-  ![Fancy Graph Refit](https://user-images.githubusercontent.com/9913366/76705724-ea1e1d80-66d9-11ea-8a01-8f2c2a4cedb1.png)
+  ![Fancy Graph Refit](https://user-images.githubusercontent.com/9913366/76989784-cf98ae00-693e-11ea-8a87-388c2ebb8bbb.png)
   
   Ah yes, here comes a more obvious issue with `mlocate`, we see that it is now outperformed by Walk (even though walk has an order of a magnitude higher amount of function calls), which is `0.847s` faster than the fastest `mlocate` implementation. But why is `os.walk` so god damn fast? I mean for a start the [scandir github page](https://github.com/benhoyt/scandir) literally says `scandir, a better directory iterator and faster os.walk()`. Well with a quick minute of Googling, we can find the answer, since scandir was added to python in [PEP 471](https://www.python.org/dev/peps/pep-0471/), `os.walk()` was optimized to be faster along with it, with [them suggesting 8-9x performance boosts on Windows systems](https://www.python.org/dev/peps/pep-0471/#id16)! 
 
@@ -100,8 +108,9 @@ So then, what did I find after profiling everything?
 |      mlocate_custom_search      |  1.596 + ~2.259 |      :heavy_multiplication_x:      | :heavy_multiplication_x: |
 |    mlocate_custom_mem_search    |  0.950 + ~2.259 |      :heavy_multiplication_x:      | :heavy_multiplication_x: |
 | mlocate_custom_mem_qread_search |  0.962 + ~2.259 |      :heavy_multiplication_x:      | :heavy_multiplication_x: |
+|        scandir_rs_search        |      4.734      |         :heavy_check_mark:         |    :heavy_check_mark:    |
 
-Above is a table with basically all you need to know for which to choose. Using `os.walk` is fastest, cross-compatible & pythonic and so is probably the best to use on your next release project; however, if you have a personal program running at home or for a specific userbase the best to use is `find_custom_mem_search` (if there is no `ramfs` or `tmpfs` you either have to [make one](https://unix.stackexchange.com/a/59305/391053) or use `find_custom_mem_qread_search`). So when should one use `mlocate`, only use this if you know the file system is going to remain static and only update once every day or so (for example searching through the fonts folder once per day).
+Above is a table with basically all you need to know for which to choose. Using `os.walk` is fastest, cross-compatible & pythonic and so is probably the best to use on your next release project; however, if you have a personal program running at home or for a specific userbase the best to use is `find_custom_mem_search` (if there is no `ramfs` or `tmpfs` you either have to [make one](https://unix.stackexchange.com/a/59305/391053) or use `find_custom_mem_qread_search`). So when should one use `mlocate`, only use this if you know the file system is going to remain static and only update once every day or so (for example searching through the fonts folder once per day). We also see that [scandir_rs](https://github.com/brmmm3/scandir-rs), although [3x faster](https://github.com/jimbob88/python_file_hunting/tree/master/windows#what-does-this-actually-mean-though) than any other Windows function in [my test suite](https://github.com/jimbob88/python_file_hunting/tree/master/windows#the-results), it is actually rather slow in comparison, with `os.walk` beating it; however, in all fairness it was able to beat `scandir`, which is intended to be the fastest!
 
 Hope this helps you :) Have fun tinkering!
 
