@@ -15,4 +15,5 @@ Catfish uses the [`mlocate` program](https://wiki.archlinux.org/index.php/Mlocat
 
 # The Operating Systems I have tested
 
-## [Linux (specifically Ubuntu)](https://github.com/jimbob88/python_file_hunting/tree/master/linux)
+## [Linux (tested on Ubuntu 19.04)](https://github.com/jimbob88/python_file_hunting/tree/master/linux)
+## [Windows (tested on Windows 10)](https://github.com/jimbob88/python_file_hunting/tree/master/windows)
