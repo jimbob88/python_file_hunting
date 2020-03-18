@@ -1,6 +1,7 @@
 import glob
 import os
 import subprocess
+import scandir_rs
 
 def return_list(func):
     def to_list(*args, **kwargs):
@@ -69,6 +70,13 @@ def mlocate_custom_mem_qread_search(base_dir, search_term):
     for line in result.splitlines():
         yield line
 
+@return_list
+def scandir_rs_search(base_dir, search_term):
+    for root, directories, filenames in scandir_rs.walk.Walk(base_dir):
+        if any([search_term in filename for filename in filenames]):
+            for filename in filenames:
+                if search_term in filename:
+                    yield os.path.join(root, filename)
 
 if __name__ == "__main__":
     glob_search("/media/james/Development/Programming", 'py')
@@ -80,3 +88,4 @@ if __name__ == "__main__":
     mlocate_custom_search("/media/james/Development/Programming", 'py')
     mlocate_custom_mem_search("/media/james/Development/Programming", 'py')
     mlocate_custom_mem_qread_search("/media/james/Development/Programming", 'py')
+    scandir_rs_search("/media/james/Development/Programming", 'py')
